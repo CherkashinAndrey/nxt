@@ -1,0 +1,32 @@
+<div id="aside-nav">
+  <a class="nav-opener aside-nav-toggle" ng-click="vm.asideNavOpen = !vm.asideNavOpen"><i></i><i></i><i></i></a>
+  <div class="add-nav-box">
+    <!-- <a class="nav-close aside-nav-toggle" ng-click="vm.asideNavOpen = false"></a> -->
+    <ul class="add-nav" ng-click="vm.asideNavOpen = false">
+      <li><a class="welcome" ui-sref=".velkommen">Velkommen</a></li>
+      <li><a class="preparations" ui-sref=".forberedelsen" ng-if="vm.type">Forberedelsen</a></li>
+      <li><a class="efforts" ui-sref=".indsatsen" ng-if="vm.type">Min Side</a></li>
+      <li><a class="conversation" ui-sref=".samtalen" ng-if="vm.type">F.A.Q.</a></li> 
+      <li><a class="profile" ui-sref=".profile">Profil</a></li>
+      <li><a class="settings" ui-sref=".medarbejdere" ng-if="vm.type">Indstillinger / Admin</a></li>
+      <li><a href="" ng-click="logOut()">LogOut</a></li>
+    
+    </ul>
+    <div class="bottom-box">
+      <address>
+        <span class="title">NXT LVL <i>by</i> Enso</span><br>
+        <span>Ehlersvej 11<br>2900 Hellerup</span>
+        <dl class="contacts">
+          <dt>T:</dt>
+          <dd>70207845</dd>
+          <dt>E:</dt>
+          <dd><a href="mailto:&#105;&#114;&#102;&#111;&#064;&#101;&#110;&#115;&#111;&#099;&#111;&#110;&#115;&#117;&#108;:&#046;&#099;&#107;">&#105;&#114;&#102;&#111;&#064;&#101;&#110;&#115;&#111;&#099;&#111;&#110;&#115;&#117;&#108;:&#046;&#099;&#107;</a></dd>
+        </dl>
+        <ul class="social-network">
+          <li><a class="facebook"><i class="icon-facebook"></i></a></li>
+          <li><a><i class="icon-linkedin"></i></a></li>
+        </ul>
+      </address>
+    </div>
+  </div>
+</div>

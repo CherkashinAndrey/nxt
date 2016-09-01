@@ -1,0 +1,245 @@
+<main id="main" role="main">
+  <div class="container">
+    <section class="profile-section" ng-class="{'active-profile': profileCtrl.activeProfile}">
+      <form ng-submit="profileCtrl.profileSubmit()" class="profile-form">
+        <div class="profile-img-box">
+          <img ng-src="{{profileCtrl.srcFile}}" height="100" width="100" alt="image description" class="profile-img"> 
+          <a class="profile-settings-btn"><i class="icon-settings"></i></a>
+          <div class="inputFile_holder" ng-if="profileCtrl.activeProfile">
+            <i class="icon-settings"></i>
+            <input type="file" id="files" class="custom" file-read-image="onFileSelect($files)" ng-model="profileCtrl.uploadme"/>
+          </div>
+          
+        </div>
+
+      <div class="profile-box">
+        <!-- <form ng-submit="profileCtrl.profileSubmit()" class="profile-form"> -->
+          <ul class="profile-list">
+            <li class="input-holder">
+              <div class="input-row">
+                <label for="name">Navn</label> <!-- ng-readonly="profileCtrl.currentUserRole == 'admin' ? false : true" -->
+                <span class="input-text name">{{profileCtrl.user.user}}</span>
+                <input type="text" name="name" id="name" placeholder="{{profileCtrl.user.user}}"  
+                       ng-model="profileCtrl.user.user"
+                       ng-keyup="profileCtrl.validation($event)"
+                >
+              </div>
+            </li>
+            <li class="input-holder">
+              <div class="input-row">
+                <label for="name">Titel</label>
+                <span class="input-text title">{{profileCtrl.user.title}}</span>
+                <input type="text" name="title" id="title" placeholder="{{profileCtrl.user.title}}" 
+                       ng-model="profileCtrl.user.title"
+                       ng-keyup="profileCtrl.validation($event)"
+                >
+              </div>
+            </li>
+            <li class="input-holder">
+              <div class="input-row">
+                <label for="name">E-mail</label>
+                <span class="input-text email">{{profileCtrl.user.email}}</span>
+                <input type="email" name="email" id="email" placeholder="{{profileCtrl.user.email}}"
+                       ng-model="profileCtrl.user.email"
+                       ng-keyup="profileCtrl.validation($event)"
+                >
+              </div>
+            </li>
+            <li class="input-holder">
+              <div class="input-row">
+                <label for="name">Mobil</label>
+                <span class="input-text phone">{{profileCtrl.user.phone}}</span>
+                <input type="text" name="phone" id="phone" placeholder="{{profileCtrl.user.phone}}" 
+                       ng-model="profileCtrl.user.phone"
+                       ng-keyup="profileCtrl.validation($event)"
+                       
+                >
+              </div>
+            </li>
+            <li class="input-holder">
+              <div class="input-row">
+                <label for="name">Fødselsdato</label>
+                <span class="input-text birth">{{profileCtrl.user.date_start | date:'medium'}}</span>
+                <input type="text" name="birth" id="birth" placeholder="{{profileCtrl.user.date_start}}"
+                       ng-model="profileCtrl.user.date_start" 
+                       ng-keyup="profileCtrl.validation($event)"
+                       readonly=""
+                >
+              </div>
+            </li>
+            <li class="input-holder">
+              <div class="input-row">
+                <label for="company">Virksomhed</label>
+                <span class="input-text company">{{profileCtrl.user.company.name}}</span>
+                <input type="text" name="company" id="company" placeholder="{{profileCtrl.user.company.name}}" readonly="">
+              </div>
+            </li>
+
+<!-- 
+             <li class="input-holder">
+              <div class="input-row">
+                <label for="position">Rolle</label>
+                <span class="input-text position">{{profileCtrl.user.roles}}</span>
+                <input type="text" name="position" id="position" placeholder="{{profileCtrl.user.roles}}" ng-model="profileCtrl.user.roles" >
+              </div>
+            </li> -->
+            <li class="input-holder">
+              <div class="input-row">
+                <label for="rolle">Rolle</label>
+                <span class="input-text potential">{{profileCtrl.is_manager}}</span>
+                <span class="select-task-select" ng-click="profileCtrl.dropDown($event)">
+                <!-- <span class="ask-select select-area"> -->
+                  <input type="text" 
+                       name="rolle" 
+                       id="rolle" 
+                       placeholder="{{profileCtrl.user.is_manager}}"  
+                       ng-model="profileCtrl.user.is_manager"
+                       ng-keyup="profileCtrl.validation($event)" 
+                       readonly="">
+                       <a class="select-opener"></a>  <!-- ask-select select-area -->
+                <!-- </span> -->
+                <div class="select-options select-options-drop ng-hide" > 
+                  <div class="drop-holder" >
+                    <div class="drop-list" >
+                      <ul class="drop_item">
+                        <li ng-repeat="role in profileCtrl.roles"><a ng-click="profileCtrl.selectRoles($event, role) " ><span > {{role}} </span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                </span>
+              </div>
+            </li>
+
+
+            <li class="input-holder">
+              <div class="input-row">
+                <label for="leader">Nærmeste leder</label>
+                <span class="input-text leader">{{profileCtrl.user.manager.first_last_name}}</span>
+                <input type="text" name="leader" id="leader" placeholder="{{profileCtrl.user.manager.first_last_name}}" ng-model="profileCtrl.user.manager.first_last_name" readonly="">
+              </div>
+            </li>
+            
+            <li class="input-holder">
+              <div class="input-row">
+                <label for="employment">Anæsttelsesdato</label>
+                <span class="input-text employment">{{profileCtrl.user.date_of_birth | date:'medium'}}</span>
+                <input type="text" name="employment" id="employment" placeholder="{{profileCtrl.user.date_of_birth}}" >
+              </div>
+            </li>
+
+            <li class="input-holder" ng-if="">
+              <div class="input-row">
+                <label for="status">Status</label>
+                <span class="input-text status">{{profileCtrl.user.is_manager}}</span>
+                <input type="text" name="status" id="status" placeholder="{{profileCtrl.user.is_manager}}" ng-model="profileCtrl.user.is_manager" 
+                       ng-keyup="profileCtrl.validation($event)" readonly="" 
+                >
+              </div>
+            </li>
+
+            <li class="input-holder">
+              <div class="input-row">
+                <label for="termination">Ophørsdato</label>
+                <span class="input-text termination">{{profileCtrl.user.date_finish}}</span>
+                <input type="text" name="termination" id="termination" placeholder="{{profileCtrl.user.date_finish}}" ng-model="profileCtrl.user.date_finish" 
+                       ng-keyup="profileCtrl.validation($event)"
+                >
+              </div>
+            </li>
+
+<!--             <li class="input-holder">
+              <div class="input-row">
+                <label for="potential">Potentiale1</label>
+                <span class="input-text potential">{{profileCtrl.user.potenciale}}</span>
+                <input type="text" name="potential" id="potential" placeholder="{{profileCtrl.user.potenciale}}"  ng-model="profileCtrl.user.potenciale"
+                       ng-keyup="profileCtrl.validation($event)"
+                >
+              </div>
+            </li> -->
+
+            <li class="input-holder">
+              <div class="input-row">
+                <label for="potentiale">Potentiale</label>
+                <span class="input-text potential">{{profileCtrl.user.potenciale}}</span>
+                <span class="select-task-select" ng-click="profileCtrl.dropDown($event)">
+                  <input type="text" 
+                       name="potentiale" 
+                       id="potentiale" 
+                       placeholder="{{profileCtrl.user.potenciale}}"  
+                       ng-model="profileCtrl.user.potenciale"
+                       ng-keyup="profileCtrl.validation($event)" readonly="">
+                  <!-- </div> -->
+
+                <div class="select-options select-options-drop ng-hide" > 
+                  <div class="drop-holder" >
+                    <div class="drop-list" >
+                      <ul style="font-weight: 500" class="drop_item" >
+                        <li ng-repeat="potenciale in profileCtrl.potenciales"><a ng-click="profileCtrl.selectPotenciale($event, potenciale) " ><span > {{potenciale}} </span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                </span>
+              </div>
+            </li>
+
+<!-- 
+           <div class="input-row " 
+            ng-class="{ 'input-error': MedarbejdereAnsatCtrl.isInvalid(formUser.roles)}">
+            <label for="manager" class="fluid-label" >Roles</label>
+            <span class="select-task-select" >
+              <span style="width: 75px;" class="task-select select-area" ng-click="MedarbejdereAnsatCtrl.dropDown($event)">
+                <span class="left" ></span>
+                  <div class="center" 
+                      name="roles" 
+                      id="roles" 
+                      ng-valid 
+                      type="text"
+                      required
+                      ng-model="MedarbejdereAnsatCtrl.userList1.is_manager" >
+                  {{ MedarbejdereAnsatCtrl.is_manager }}
+                  </div>
+                <a class="select-opener"></a>
+              </span>
+              <div class="select-options drop-task-select drop-box ng-hide" > 
+                <div class="drop-holder" >
+                  <div class="drop-list" >
+                    <ul style="font-weight: 500"  >
+                      <li ng-repeat="roles in MedarbejdereAnsatCtrl.roles"><a ng-click="MedarbejdereAnsatCtrl.selectRole($event, roles) " ><span > {{roles}} </span></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </span>
+          </div> -->
+
+
+            <li class="input-holder">
+              <div class="input-row">
+                <label for="notes">Note</label>
+                <span class="input-text notes">{{profileCtrl.user.notes}}</span>
+                <textarea name="notes" id="notes" cols="30" rows="10" placeholder="{{profileCtrl.user.notes}}" 
+                          ng-keyup="profileCtrl.validation($event)" ng-model="profileCtrl.user.notes"
+                ></textarea>
+              </div>
+            </li>
+            <li class="edit-row">
+              <span class="error-message">Der skete en fejl, Kig venligst Igen</span>
+              <a class="edit-profile toggle-profile-btn" ng-click="profileCtrl.clickActiveProfile()">Rediger Profil</a>
+              <div class="btn-row">
+                <input type="submit" value="OK" class="btn" ng-click="profileCtrl.activeProfile = !profileCtrl.activeProfile">
+                <a class="btn toggle-profile-btn" ng-click="profileCtrl.canselChang()">Fortryd</a>
+              </div>
+            </li>
+          </ul>
+        </form>
+        <div class="btn-row" ng-show="!profileCtrl.activeProfile">
+          <a href="" ui-sref="home.medarbejdere()" class="btn toggle-profile-btn" >Back</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

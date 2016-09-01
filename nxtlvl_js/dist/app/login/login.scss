@@ -1,0 +1,48 @@
+/*
+.login-page-wrapper {
+    display: flex;
+    align-items:center;
+    background: url('../../../assets/images/login-bg.jpg') center no-repeat;
+    background-size: cover;
+    background-atachment: fixed;
+    color: #fff;
+    position: relative;
+    min-height: 100%;
+    padding-top: 70px;
+    background-attachment: fixed;
+
+    .login-form-wrap {
+        border: 2px solid white;
+        padding-top: 25px;
+        margin: 0 auto;
+        border-radius: $br-size;
+        background-color: $bg-color;
+        border: 2px solid white;
+
+        .login-form {
+            width: 90%;
+            margin: 0 auto;
+            .password-link {
+                cursor: pointer;
+            }
+        }
+    }
+    .login-form-legend{
+        color: #fff;
+    }
+    .ng-invalid.ng-touched {
+        border: solid red 1px;
+    }
+    .form-close{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 25px;
+        color: rgba(255,255,255,0.7);
+        &:hover {
+            color: white;
+        }
+    }
+
+}
+*/

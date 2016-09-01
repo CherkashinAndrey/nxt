@@ -1,0 +1,15 @@
+{  
+	"medarbejdere":
+	{
+	    "TITLE" : "Ansatte",
+	    "BATTON_EMPLOEE" : "Tilføj ansat",
+	    "BATTON_PREPARATION" : "Tilføj forberedelse",
+	    "PLACEHOLDER_MED" : "Leder du efter medarbejder/leder?"
+	},
+	"velkommen":
+	{
+	    "NAME" : "Hej"
+	}
+
+}
+

@@ -1,0 +1,389 @@
+<main id="main" role="main">
+  <div class="container">
+    <section class="admin-section">
+		<div class="admin-heading">
+			<h1>{{medarbejdereCtrl.translate.medarbejdere.TITLE}}</h1>
+			<div class="btn-holder">
+ 				<a href="" ng-show="!medarbejdereCtrl.undefinedUser" ui-sref="home.tilfotForberedelsen()" class="btn white"><i class="ss-file"></i>{{medarbejdereCtrl.translate.medarbejdere.BATTON_PREPARATION}}</a>
+				<a href="" ui-sref="home.tilfotAnsat()" class="btn white"><i class="ss-users"></i>{{medarbejdereCtrl.translate.medarbejdere.BATTON_EMPLOEE}}</a>
+			</div>
+		</div>
+		
+		<div ng-show="!medarbejdereCtrl.undefinedUser">
+
+		<div class="control-panel">
+			<ul class="view-list">
+				<li class="active" ng-class="{'active': medarbejdereCtrl.pageState == 'list1'}" 
+							 ng-click="medarbejdereCtrl.changePageState('list1')"><a href="" class="rows"><span></span></a></li>
+				<li class="" ng-class="{'active': medarbejdereCtrl.pageState == 'list2'}"
+							 ng-click="medarbejdereCtrl.changePageState('list2')"><a href="" class="thumbs"><span></span></a></li>
+			</ul>
+			<div class="user_nav">
+				<breadcrumbs></breadcrumbs>
+				<form action="#" class="search-form2">
+					<input   
+							type="search" 
+							ng-model="medarbejdereCtrl.search"
+							ng-focus="medarbejdereCtrl.focusSearch()"
+							ng-blur="medarbejdereCtrl.noActiveSearch()"> <!--  place-holder -->
+							<!-- placeholder="{{medarbejdereCtrl.translate.medarbejdere.PLACEHOLDER_MED}}" -->
+				</form>
+			</div>
+		</div>
+
+		
+
+		<!-- users-list -->
+		<div class="users-list" ng-show="medarbejdereCtrl.pageState  == 'list1'">
+			<!-- row -->
+			<div class="row title">
+				<div class="cell cell-photo">
+				</div>
+				<div class="cell cell-name " 
+					 ng-class="{'selected': medarbejdereCtrl.cellState == 'name'}" 
+					 ng-click="medarbejdereCtrl.changeCellState($event,'name')">
+					<a href="">
+						<span>Navn</span>
+						<span class="arrow"></span>
+					</a>
+				</div>
+				<div class="cell cell-employed" 
+					 ng-class="{'selected': medarbejdereCtrl.cellState == 'employed'}"
+					 ng-click="medarbejdereCtrl.changeCellState($event,'employed')">
+					<a href="">
+						<span>Ansat</span>
+						<span class="arrow"></span>
+					</a>
+				</div>
+				<div class="cell cell-effort" 
+					 ng-class="{'selected': medarbejdereCtrl.cellState == 'effort'}"
+					 ng-click="medarbejdereCtrl.changeCellState($event,'effort')">
+					<a href="">
+						<span>Indsats</span>
+						<span class="arrow"></span>
+					</a>
+				</div>
+				<div class="cell cell-manager" 
+					 ng-class="{'selected': medarbejdereCtrl.cellState == 'manager'}"
+					 ng-click="medarbejdereCtrl.changeCellState($event,'manager')">
+					<a href="">
+						<span>Leder</span>
+						<span class="arrow"></span>
+					</a>
+				</div>
+				<div class="cell cell-skjul">
+					<span>skjul</span>
+				</div>
+			</div>
+			<!-- row -->
+
+			<div class="row visibility-icons parent_item" ng-if="medarbejdereCtrl.showGroup" ng-repeat="user in medarbejdereCtrl.newArrayUsers  | orderByRole:'true':medarbejdereCtrl.cellState:medarbejdereCtrl.revers | filter:medarbejdereCtrl.search">   <!-- parent_active -->
+				<a href="#" class="show_insert" ng-if="user.is_manager" ng-click="medarbejdereCtrl.dropDownUser($event, user)"></a>
+				<div class="row-holder">
+					<div class="cell cell-photo" ui-sref="home.editProfile({user: user, currentUserRole: 'admin'})" >  <!-- ng-click="medarbejdereCtrl.sendUserEdit(user)" -->
+						<div class="cell-holder">
+							<div class="photo potential">
+								<!-- <img ng-src="{{medarbejdereCtrl.URL_SERV + (user.photo ? user.photo : '/media/empty-img.jpg') }}" alt="image description"> -->
+								<img ng-src="{{user.photo ? medarbejdereCtrl.URL_SERV + user.photo : '/images/empty-img.jpg' }}" alt="image description">
+								<div ng-if="user.is_manager == true ">
+									<span class="star">
+										<img src="images/circle-star.png" alt="image description">
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cell cell-name">
+						<div class="cell-holder">
+							<strong class="name">{{user.first_name}}  {{user.last_name}}</strong>
+							<span class="position">{{user.title}}</span>
+						</div>
+					</div>
+					
+					<div ng-show="user.showInfo" class="showInfo">
+						<div class="cell cell-employed">
+							<div class="cell-holder disabled hidden">
+								<div class="ico-holder">
+									<span class="status-mark " ng-class="{'green': user.statusAnsat == 'online', 'red': user.statusAnsat == 'offline', 'yellow': user.statusAnsat == 'not active'}"></span>
+									<i class="ss-file"></i>
+								</div>
+								<span class="text">Mangler</span>
+							</div>
+						</div>
+						  				<div class="cell cell-effort">
+							<div class="cell-holder hidden">
+								<div class="ico-holder">
+									<span class="status-mark" ng-class="{'green': user.statusIndsats == 'online', 'red': user.statusIndsats == 'offline', 'yellow': user.statusIndsats == 'not active'}"></span>
+									<i class="ss-chat"></i>
+								</div>
+								<span class="text">(0)</span>
+							</div>
+						</div>
+						<div class="cell cell-manager">
+							<div class="cell-holder hidden">
+								<div class="ico-holder">
+									<span class="status-mark red" ng-class="{'green': user.statusLeder == 'online', 'red': user.statusLeder == 'offline', 'yellow': user.statusLeder == 'not active'}"></span>
+									<div class="photo-small">
+										<img src="images/profile-photo-large-01.jpg" alt="image description">
+									</div>
+								</div>
+								<span class="text">Start</span>
+							</div>
+						</div>
+						<div class="cell cell-skjul">
+							<div class="cell-holder hidden" ng-click="medarbejdereCtrl.closeInfo(user)">
+								<label>
+									<input type="checkbox" checked>
+									<span class="fake-input"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="" ng-show="!user.showInfo">
+						<a href="" ng-click="medarbejdereCtrl.openInfo($event ,user)" class="add-link"><i class="ss-file"></i>Tilføj forberedelse</a>
+					</div>
+				</div>
+			</div>
+
+
+<!-- GET USER GROUT -->
+
+	<!-- ONE PERSON  -->
+			<div class="row visibility-icons parent_item parent_active" ng-if="!medarbejdereCtrl.showGroup" ng-repeat="user in medarbejdereCtrl.onePerson  | orderByRole:'true':medarbejdereCtrl.cellState:medarbejdereCtrl.revers | filter:medarbejdereCtrl.search">   <!-- parent_active -->
+				<a href="#" class="show_insert " ng-if="user.is_manager" ></a>  <!-- ng-click="medarbejdereCtrl.dropDownUser($event, user)" -->
+				<div class="row-holder">
+					<div class="cell cell-photo" ui-sref="home.editProfile({user: user, currentUserRole: 'admin'})" >  <!-- ng-click="medarbejdereCtrl.sendUserEdit(user)" -->
+						<div class="cell-holder">
+							<div class="photo potential">
+								<!-- <img src="images/profile-photo-large-01.jpg" alt="image description"> -->
+								<img ng-src="{{user.photo ? medarbejdereCtrl.URL_SERV + user.photo : '/images/empty-img.jpg' }}" alt="image description">
+								<div ng-if="user.is_manager == true ">
+									<span class="star">
+										<img src="images/circle-star.png" alt="image description">
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cell cell-name">
+						<div class="cell-holder">
+							<strong class="name">{{user.first_name}} {{user.last_name}} </strong>
+							<span class="position">{{user.title}}</span>
+						</div>
+					</div>
+					
+					<div ng-show="user.showInfo" class="showInfo">
+						<div class="cell cell-employed">
+							<div class="cell-holder disabled hidden">
+								<div class="ico-holder">
+									<span class="status-mark " ng-class="{'green': user.statusAnsat == 'online', 'red': user.statusAnsat == 'offline', 'yellow': user.statusAnsat == 'not active'}"></span>
+									<i class="ss-file"></i>
+								</div>
+								<span class="text">Mangler</span>
+							</div>
+						</div>
+						  				<div class="cell cell-effort">
+							<div class="cell-holder hidden">
+								<div class="ico-holder">
+									<span class="status-mark" ng-class="{'green': user.statusIndsats == 'online', 'red': user.statusIndsats == 'offline', 'yellow': user.statusIndsats == 'not active'}"></span>
+									<i class="ss-chat"></i>
+								</div>
+								<span class="text">(0)</span>
+							</div>
+						</div>
+						<div class="cell cell-manager">
+							<div class="cell-holder hidden">
+								<div class="ico-holder">
+									<span class="status-mark red" ng-class="{'green': user.statusLeder == 'online', 'red': user.statusLeder == 'offline', 'yellow': user.statusLeder == 'not active'}"></span>
+									<div class="photo-small">
+										<img src="images/profile-photo-large-01.jpg" alt="image description">
+									</div>
+								</div>
+								<span class="text">Start</span>
+							</div>
+						</div>
+						<div class="cell cell-skjul">
+							<div class="cell-holder hidden" ng-click="medarbejdereCtrl.closeInfo(user)">
+								<label>
+									<input type="checkbox" checked>
+									<span class="fake-input"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="" ng-show="!user.showInfo">
+						<a href="" ng-click="medarbejdereCtrl.openInfo($event ,user)" class="add-link"><i class="ss-file"></i>Tilføj forberedelse</a>
+					</div>
+				</div>
+			</div>
+	<!-- END ONE PERSON  -->
+
+			<div class="row visibility-icons parent_item " ng-if="!medarbejdereCtrl.showGroup" ng-repeat="user in medarbejdereCtrl.groupeUser  | orderByRole:'true':medarbejdereCtrl.cellState:medarbejdereCtrl.revers | filter:medarbejdereCtrl.search">   <!-- parent_active -->
+				<a href="#" class="show_insert" ng-if="user.is_manager" ng-click="medarbejdereCtrl.dropDownUser($event, user)"></a>
+				<div class="row-holder">
+					<div class="cell cell-photo" ui-sref="home.editProfile({user: user, currentUserRole: 'admin'})" >  <!-- ng-click="medarbejdereCtrl.sendUserEdit(user)" -->
+						<div class="cell-holder">
+							<div class="photo potential">
+								<!-- <img src="images/profile-photo-large-01.jpg" alt="image description"> -->
+								<img ng-src="{{user.photo ? medarbejdereCtrl.URL_SERV + user.photo : '/images/empty-img.jpg' }}" alt="image description">
+								<div ng-if="user.is_manager == true ">
+									<span class="star">
+										<img src="images/circle-star.png" alt="image description">
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cell cell-name">
+						<div class="cell-holder">
+							<strong class="name">{{user.first_name}} {{user.last_name}}</strong>
+							<span class="position">{{user.title}}</span>
+						</div>
+					</div>
+					
+					<div ng-show="user.showInfo" class="showInfo">
+						<div class="cell cell-employed">
+							<div class="cell-holder disabled hidden">
+								<div class="ico-holder">
+									<span class="status-mark " ng-class="{'green': user.statusAnsat == 'online', 'red': user.statusAnsat == 'offline', 'yellow': user.statusAnsat == 'not active'}"></span>
+									<i class="ss-file"></i>
+								</div>
+								<span class="text">Mangler</span>
+							</div>
+						</div>
+						  				<div class="cell cell-effort">
+							<div class="cell-holder hidden">
+								<div class="ico-holder">
+									<span class="status-mark" ng-class="{'green': user.statusIndsats == 'online', 'red': user.statusIndsats == 'offline', 'yellow': user.statusIndsats == 'not active'}"></span>
+									<i class="ss-chat"></i>
+								</div>
+								<span class="text">(0)</span>
+							</div>
+						</div>
+						<div class="cell cell-manager">
+							<div class="cell-holder hidden">
+								<div class="ico-holder">
+									<span class="status-mark red" ng-class="{'green': user.statusLeder == 'online', 'red': user.statusLeder == 'offline', 'yellow': user.statusLeder == 'not active'}"></span>
+									<div class="photo-small">
+										<img src="images/profile-photo-large-01.jpg" alt="image description">
+									</div>
+								</div>
+								<span class="text">Start</span>
+							</div>
+						</div>
+						<div class="cell cell-skjul">
+							<div class="cell-holder hidden" ng-click="medarbejdereCtrl.closeInfo(user)">
+								<label>
+									<input type="checkbox" checked>
+									<span class="fake-input"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="" ng-show="!user.showInfo">
+						<a href="" ng-click="medarbejdereCtrl.openInfo($event ,user)" class="add-link"><i class="ss-file"></i>Tilføj forberedelse</a>
+					</div>
+				</div>
+			</div>
+<!-- END GET USER GROUT -->
+
+
+
+
+			<!-- row -->
+		</div>
+
+		<!-- user-list2 -->
+		<div ng-show="medarbejdereCtrl.pageState  == 'list2'">
+			<div class="users-list2 " style="">
+				<ul class="filter-list">
+					<li ng-class="{'selected': medarbejdereCtrl.cellState == 'name'}" 
+						 ng-click="medarbejdereCtrl.changeCellState($event,'name')">
+							<a href="">Navn <span class="arrow"></span></a>
+					</li>
+					<li ng-class="{'selected': medarbejdereCtrl.cellState == 'employed'}" 
+						 ng-click="medarbejdereCtrl.changeCellState($event,'employed')">
+						 <a href="">Ansat <span class="arrow"></span></a>
+					</li>
+					<li ng-class="{'selected': medarbejdereCtrl.cellState == 'manager'}" 
+						 ng-click="medarbejdereCtrl.changeCellState($event,'manager')">
+						 <a href="">Leder <span class="arrow"></span></a>
+					</li>
+					<li ng-class="{'selected': medarbejdereCtrl.cellState == 'effort'}" 
+						 ng-click="medarbejdereCtrl.changeCellState($event,'effort')">
+						 <a href="">Indsats <span class="arrow"></span></a>
+					</li>
+				</ul>
+				<div class="items">
+					<!-- item -->
+					<div class="item visibility-icons parent_item parent_active" ng-repeat="user in medarbejdereCtrl.newArrayUsers | orderByRole:'true':medarbejdereCtrl.cellState | filter:medarbejdereCtrl.search">
+						<div class="item-holder">
+							<a href="#" class="show_insert" ></a>	<!-- show in 'parent_item' -->
+							<div class="photo potential">
+								<img src="images/profile-photo-large-01.jpg" alt="image description">
+								<div ng-if="user.role == 'manager'">
+									<span class="star">
+										<img src="images/circle-star.png" alt="image description">
+									</span>
+								</div>
+							</div>
+							<strong class="name">{{user.name}}</strong>
+							<span class="position">{{user.title}}</span>
+							<div ng-show="user.showInfo">
+								<ul class="icons-list">
+									<li class="disabled cell-employed">
+										<div class="ico-holder">
+											<span class="status-mark " ng-class="{'green': user.statusAnsat == 'online', 'red': user.statusAnsat == 'offline', 'yellow': user.statusAnsat == 'not active'}"></span>
+											<i class="ss-file"></i>
+										</div>
+										<span class="text">vis</span>
+									</li>
+									<li class="cell-effort">
+										<div class="ico-holder">
+											<span class="status-mark " ng-class="{'green': user.statusIndsats == 'online', 'red': user.statusIndsats == 'offline', 'yellow': user.statusIndsats == 'not active'}"></span>
+											<i class="ss-chat"></i>
+										</div>
+										<span class="text">(0)</span>
+									</li>
+									<li class="cell-manager">
+										<div class="ico-holder">
+											<span class="status-mark " ng-class="{'green': user.statusLeder == 'online', 'red': user.statusLeder == 'offline', 'yellow': user.statusLeder == 'not active'}"></span>
+											<div class="photo-small">
+												<img src="images/profile-photo-large-01.jpg" alt="image description">
+											</div>
+										</div>
+										<span class="text">Start</span>
+									</li>
+									<li class="cell-skjul">
+										<label ng-click="medarbejdereCtrl.closeInfo(user)">
+											<input type="checkbox" checked>
+											<span class="fake-input"></span>
+										</label>
+										<div class="text">Skjul</div>
+									</li>
+								</ul>
+							</div>
+
+							<div ng-show="!user.showInfo">
+								<a href="" ng-click="medarbejdereCtrl.openInfo(user)" class="add-link"><i class="ss-file"></i>Tilføj forberedelse</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div ng-show="medarbejdereCtrl.undefinedUser">
+			<div class="empty-box">
+				<img src="images/empty-img.jpg" alt="image description">
+				<span class="message">Velkommen til NXT LVL <br>Tilføj ansatte for at starte</span>
+			</div>
+		</div>
+
+   </section>
+  </div>
+</main>
+

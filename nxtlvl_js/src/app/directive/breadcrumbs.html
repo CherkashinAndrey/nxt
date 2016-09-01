@@ -1,0 +1,6 @@
+<ul class="breadcrumbs" ng-if="medarbejdereCtrl.focusSearchMark">
+	<li ng-repeat="link in vm.breadcrumbsArray " ng-click="vm.breadcrumbsLink(link)" ng-if="link.display"><a href="">{{link.first_name_display}} {{link.last_name_display}}</a> </li>  
+	<a ng-if="vm.breadcrumbsArray.length >= 1" href="" class="del_item" ng-click="vm.breadcrumbsPopArr()"></a>
+	<!-- <li><a href="#">Andrei Mitrochenko</a><a href="" class="del_item"></a></li> -->
+<!-- 	ng-click="medarbejdereCtrl.return(link)" -->
+</ul>

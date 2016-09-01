@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+#Idea/Pycharm
+.idea/
+
+.DS_Store
+
+# C extensions
+*.so
+
+# develop database
+*.sqlite3
+*.log
+
+# init settings
+#NXT/settings/__init__.py
+
+# AngularJS
+markup/node_modules
+node_modules/
+bower_components/
+coverage/
+.sass-cache/
+.tmp/
+
+media/

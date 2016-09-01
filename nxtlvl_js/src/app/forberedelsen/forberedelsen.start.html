@@ -1,0 +1,508 @@
+<main id="main" role="main" ng-click="autocompliteShow = !autocompliteShow">
+  <div class="container">
+    <div class="preparation-section">
+      <div class="preparation-heading text-center">
+        <div class="photo-box">
+          <div class="photo"><img src="../../images/profile-photo-02.jpg" height="55" width="55" alt="image description"></div>
+          <div class="photo potential">
+            <img src="../../images/profile-photo-03.jpg" alt="image description">
+            <img src="../../images/circle-star.png" alt="image description" class="star">
+           </div>
+        </div>
+        <p><span class="name">Franz Malten Buemann’s</span> forberedelse for <span class="name">Jane Hahn</span></p>
+      </div>
+      <div class="preparation-box active preparation-item validate" id="scroll-1">
+        <h1>Tilføj dine arbejdsopgaver</h1>
+        <div class="text-box">
+          <p>Formålet med forberedelsen er at give dig og din leder et overblik over dine arbejdsopgaver. Derfor skal du notere de arbejdsopgaver, som du sidder med på nuværende tidspunkt og kommer til at sidde med i det kommende år. Herefter vil vi tale om, hvilke kompetencer der skal til for at du kan løse disse opgaver mest optimalt.</p>
+        </div>
+        <search show="{{autocompliteShow}}"></search>
+        <ul class="striped-list">
+          <li ng-repeat="dutie in forberedelsenCtrl.duties.duties">
+            <a class="delete-btn" ng-click="forberedelsenCtrl.removeDutie($index)">fjern</a>
+            {{dutie.name}}
+          </li>
+        </ul>
+      </div>
+      <div class="preparation-box preparation-item validate" id="scroll-2">
+        <h2>Inddel dine opgaver </h2>
+        <div class="text-box">
+          <p>Du skal nu inddele dine opgaver i forskellige sværhedsgrader.
+            <br> <b>{{forberedelsenCtrl.box1[0]}}-opgaver</b> er opgaver med store ændringer, som du ikke har stor erfaring med eksempelvis et udfordrende branchekendskab eller nyt ledelsesområde.
+            <br> <b>{{forberedelsenCtrl.box1[1]}}-opgaver</b> er opgaver, du løser og som løbende vil gennemgå moderate ændringer i form af en udvidelse af dit ansvarsområde.
+            <br> <b>{{forberedelsenCtrl.box1[2]}}-opgaver</b> er opgaver uden bemærkelsesværdige ændringer. Disse er præget af rutiner og regelmæssighed, hvor du ikke behøver at udvikle dig for at løse dem.</p>
+        </div>
+        <ul class="striped-list info-table">
+          <li class="title-row">
+            <div class="box">
+              Arbejdsopgaver
+            </div>
+            <div class="box">
+              <div class="item">{{forberedelsenCtrl.box1[0]}}</div>
+              <div class="item">{{forberedelsenCtrl.box1[1]}}</div>
+              <div class="item">{{forberedelsenCtrl.box1[2]}}</div>
+            </div>
+          </li>
+          <li ng-repeat="level in forberedelsenCtrl.duties.duties">
+            <div class="box">
+              {{level.name}}
+            </div>
+            <div class="box">
+              <div class="item">
+                <span class="item-title">{{forberedelsenCtrl.box1[0]}}</span>
+                <input class="custom-input" type="radio" name="radio-row-01-{{$index}}"
+                       id="radio-01-{{$index}}" value="{{forberedelsenCtrl.box1[0]}}" ng-model="level.level"
+                       ng-click="forberedelsenCtrl.levelChange($index, $event)">
+                <label for="radio-01-{{$index}}" class="fake-radio"></label>
+              </div>
+              <div class="item">
+                <span class="item-title">{{forberedelsenCtrl.box1[1]}}</span>
+                <input class="custom-input" type="radio" name="radio-row-01-{{$index}}"
+                       id="radio-02-{{$index}}" value="{{forberedelsenCtrl.box1[1]}}" ng-model="level.level"
+                       ng-click="forberedelsenCtrl.levelChange($index, $event)">
+                <label for="radio-02-{{$index}}" class="fake-radio"></label>
+              </div>
+              <div class="item">
+                <span class="item-title">{{forberedelsenCtrl.box1[2]}}</span>
+                <input class="custom-input" type="radio" name="radio-row-01-{{$index}}"
+                       id="radio-03-{{$index}}" value="{{forberedelsenCtrl.box1[2]}}" ng-model="level.level"
+                       ng-click="forberedelsenCtrl.levelChange($index, $event)">
+                <label for="radio-03-{{$index}}" class="fake-radio"></label>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="preparation-box preparation-item validate" id="scroll-3">
+        <h2>Hvordan vurderer du sværhedsgraden af dine opgaver?</h2>
+        <div class="text-box">
+             <p>Opgaver med <b>lav</b> sværhedsgrad er opgaver, som du umiddelbart kan klare på egen hånd og blot har brug for sparring i forhold til.
+               <br> Opgaver med <b>middel</b> sværhedsgrad indeholder uforudsete elementer, som du ikke er trygge ved.
+               <br> Opgaver med <b>høj</b> sværhedsgrad kræver mange ressourcer. Du kan godt have arbejdet med en lignende opgave tidligere og stadig have svært ved at løse den tilfredsstillende.</p>
+        </div>
+        <ul class="striped-list info-table">
+          <li class="title-row">
+            <div class="box">
+              Arbejdsopgaver
+            </div>
+            <div class="box">
+              <div class="item">{{forberedelsenCtrl.box2[0]}}</div>
+              <div class="item">{{forberedelsenCtrl.box2[1]}}</div>
+              <div class="item">{{forberedelsenCtrl.box2[2]}}</div>
+            </div>
+          </li>
+          <li ng-repeat="complexity in forberedelsenCtrl.duties.duties">
+            <div class="box">
+              {{complexity.name}}
+            </div>
+            <div class="box">
+              <div class="item">
+                <span class="item-title">{{forberedelsenCtrl.box2[0]}}</span>
+                <input class="custom-input" type="radio" name="radio-row-04-{{$index}}"
+                       id="radio-04-{{$index}}" value="{{forberedelsenCtrl.box2[0]}}" ng-model="complexity.complexity"
+                       ng-click="forberedelsenCtrl.complexityChange($index, $event)">
+                <label for="radio-04-{{$index}}" class="fake-radio"></label>
+              </div>
+              <div class="item">
+                <span class="item-title">{{forberedelsenCtrl.box2[1]}}</span>
+                <input class="custom-input" type="radio" name="radio-row-05-{{$index}}"
+                       id="radio-05-{{$index}}" value="{{forberedelsenCtrl.box2[1]}}" ng-model="complexity.complexity"
+                       ng-click="forberedelsenCtrl.complexityChange($index, $event)">
+                <label for="radio-05-{{$index}}" class="fake-radio"></label>
+              </div>
+              <div class="item">
+                <span class="item-title">{{forberedelsenCtrl.box2[2]}}</span>
+                <input class="custom-input" type="radio" name="radio-row-06-{{$index}}"
+                       id="radio-06-{{$index}}" value="{{forberedelsenCtrl.box2[2]}}" ng-model="complexity.complexity"
+                       ng-click="forberedelsenCtrl.complexityChange($index, $event)">
+                <label for="radio-06-{{$index}}" class="fake-radio"></label>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="preparation-box preparation-item" id="scroll-4">
+        <h2>Opsummering af dine arbejdsopgaver</h2>
+        <div class="summary-block">
+          <div class="summary-row">
+            <div class="item">
+              <span class="left-text">{{forberedelsenCtrl.box2[2]}}</span>
+              <span class="new-text" ng-repeat="dutie in forberedelsenCtrl.duties.duties | filter: {level: forberedelsenCtrl.box1[2], complexity: forberedelsenCtrl.box2[2]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+            <div class="item">
+              <span class="new-text" ng-repeat="dutie in forberedelsenCtrl.duties.duties | filter: {level: forberedelsenCtrl.box1[1], complexity: forberedelsenCtrl.box2[2]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+            <div class="item">
+              <span class="new-text" ng-repeat="dutie in forberedelsenCtrl.duties.duties | filter: {level: forberedelsenCtrl.box1[0], complexity: forberedelsenCtrl.box2[2]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+          </div>
+          <div class="summary-row">
+            <div class="item">
+              <span class="left-text">{{forberedelsenCtrl.box2[1]}}</span>
+              <span class="new-text" ng-repeat="dutie in forberedelsenCtrl.duties.duties | filter: {level: forberedelsenCtrl.box1[2], complexity: forberedelsenCtrl.box2[1]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+            <div class="item">
+              <span class="new-text" ng-repeat="dutie in forberedelsenCtrl.duties.duties | filter: {level: forberedelsenCtrl.box1[1], complexity: forberedelsenCtrl.box2[1]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+            <div class="item">
+              <span class="new-text" ng-repeat="dutie in forberedelsenCtrl.duties.duties | filter: {level: forberedelsenCtrl.box1[0], complexity: forberedelsenCtrl.box2[1]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+          </div>
+          <div class="summary-row">
+            <div class="item">
+              <span class="left-text">{{forberedelsenCtrl.box2[0]}}</span>
+              <span class="bottom-text">{{forberedelsenCtrl.box1[2]}}</span>
+              <span class="new-text" ng-repeat="dutie in forberedelsenCtrl.duties.duties | filter: {level: forberedelsenCtrl.box1[2], complexity: forberedelsenCtrl.box2[0]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+            <div class="item">
+              <span class="bottom-text">{{forberedelsenCtrl.box1[1]}}</span>
+              <span class="new-text" ng-repeat="dutie in forberedelsenCtrl.duties.duties | filter: {level: forberedelsenCtrl.box1[1], complexity: forberedelsenCtrl.box2[0]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+            <div class="item">
+              <span class="bottom-text">{{forberedelsenCtrl.box1[0]}}</span>
+              <span class="new-text" ng-repeat="dutie in forberedelsenCtrl.duties.duties | filter: {level: forberedelsenCtrl.box1[0], complexity: forberedelsenCtrl.box2[0]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+          </div>
+          <div class="left-info">Sværhedsgrad</div>
+          <div class="bottom-info">Nyhedsværdi</div>
+        </div>
+        <div class="summary-view">
+          <ul class="summary-list">
+            <li>
+              <div class="title-row">Lorem ipsum dolor sit amet</div>
+              <div class="value-row">
+                <div class="row">
+                  <span class="name">Nyhedsværdi:</span>
+                  <span class="value">A</span>
+                </div>
+                <div class="row">
+                  <span class="name">Sværhedsgrad:</span>
+                  <span class="value">Middel</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title-row">Lorem ipsum dolor sit amet</div>
+               <div class="value-row">
+                <div class="row">
+                  <span class="name">Nyhedsværdi:</span>
+                  <span class="value">B</span>
+                </div>
+                <div class="row">
+                  <span class="name">Sværhedsgrad:</span>
+                  <span class="value">Middel</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="title-row">Lorem ipsum dolor sit amet</div>
+               <div class="value-row">
+                <div class="row">
+                  <span class="name">Nyhedsværdi:</span>
+                  <span class="value">C</span>
+                </div>
+                <div class="row">
+                  <span class="name">Sværhedsgrad:</span>
+                  <span class="value">Middel</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="preparation-box preparation-item validate" id="scroll-5">
+        <h2>I hvilken grad er du tilfreds med din nuværende sammensætning af arbejdsopgaver?</h2>
+        <p>Har du ambitioner om at få nye opgaver. Kan dine kompetencer anvendes anderledes?</p>
+        <div class="slider-block smile-slider">
+          <span class="left-value">
+            <i class="smile"></i>
+          </span>
+          <div class="slider-row">
+            <div class="range-slider">
+                <input class="range-inner-slider" min="0" max="100" type="range" id="range_1"
+                       ng-model="forberedelsenCtrl.duties.range_1"
+                       on-touch="forberedelsenCtrl.clickedOrTouched"
+                       on-change
+                >
+            </div>
+          </div>
+          <span class="right-value">
+            <i class="smile sad"></i>
+          </span>
+        </div>
+      </div>
+      <div class="preparation-box preparation-item validate" id="scroll-6">
+        <h2>Begrund dit svar</h2>
+        <div class="marked-block">
+          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_1"
+                    ng-model="forberedelsenCtrl.duties.text_1"
+                    ng-keyup="forberedelsenCtrl.textChange($event)"
+                    ng-blur="forberedelsenCtrl.textChange($event)"
+          ></textarea>
+        </div>
+      </div>
+      <section class="content-section preparation-item preparation-box" id="scroll-7">
+        <div class="heading">
+          <h1>Udvikling af relevante kompetencer</h1>
+          <p>Kompetencer handler om, hvordan du anvender dine evner, viden og færdigheder i de daglige arbejdsopgaver. Næste step handlet om at få dig til at reflektere over dine kompetencer i forhold til nuværende og fremtidige arbejdsopgaver, så de kan få det fokus, det kræver for at udvikle dem og du kan løse dine opgaver endnu bedre. Det er to mulige udviklingsveje, den ene er at blive bedre til noget du er god til i forvejen. Den anden er at udvikle helt nye kompetencer som er relevant for dit arbejde. Alle er i besiddelse af de kompetencer som er med her, men det er forskelligt i hvilken grad vi bruger og udnytter dem.</p>
+        </div>
+      </section>
+      <section class="content-section heading preparation-item preparation-box" id="scroll-8">
+        <h1>Passion</h1>
+        <p>At være passioneret er at brænde for noget. Begrebet passion er meget individuelt fra person til person, og vi udlever alle vores passioner på forskellig vis. En passion for sport kan udleves på eliteniveau, som motionist, leder i en sportsforening eller forælder til et sportsudøvende barn. </p>
+        <p>Passion er en indre motivationsfaktor, som ikke umiddelbart lader sig påvirke af løn, titel, bonus, pensions- og frokostordning (ydre motivationsfaktorer). Passionerede medarbejdere udviser en højere grad af trivsel og positiv energi på arbejdspladsen og har mere at stå imod med i hverdagen i forhold til travlhed, sygdom og stress. <br> Forskellige faktorer eller personlige kompetencer har indflydelse på, hvorvidt du formår at bruge din passion rent arbejdsmæssigt. Disse kompetencer beskrives i det følgende.</p>
+      </section>
+      <div class="preparation-box preparation-item validate" id="scroll-9">
+        <h2>Engagement</h2>
+        <p>Engagement er udtryk for en særlig positiv tilstand hos dig i forhold til dit job, din arbejdsplads og dine kolleger. Denne positive tilstand er præget af energi og handlingsparathed samt en evne til at være fuldt optaget af dit arbejde, således at du har svært ved at løsrive dig.</p>
+        <p>Engagement og motivation hænger sammen og begge dele kan udspringe enten fra dig selv (indre motivation) eller på baggrund af ydre faktorer (ydre motivation). Engagement og motivation er særlige drivkræfter, der dels bidrager til, at du når dine mål og dels er med til at skabe arbejdsglæde, psykisk sundhed og forøget effektivitet. </p>
+        <div class="slider-block  active-slider">
+          <span class="left-value">
+            <span class="text">Distanceret</span>
+            <span class="hint-block " ng-hide="forberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+              <span class="hint-box">
+                <i class="hint-ico">+</i>
+                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+              </span>
+              <span class="hint-box" >
+                <i class="hint-ico">÷</i>
+                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+              </span>
+            </span>
+          </span>
+          <div class="slider-row">
+            <div class="range-slider">
+              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+                     ng-model="forberedelsenCtrl.duties.range_2"
+                     on-touch="forberedelsenCtrl.clickedOrTouched"
+                     on-change
+                >
+            </div>
+          </div>
+          <span class="right-value">
+            <span class="text">Involveret</span>
+            <span class="hint-block" ng-hide="forberedelsenCtrl.showText" >
+              <span class="hint-box">
+                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+                <i class="hint-ico">+</i>
+              </span>
+              <span class="hint-box">
+                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+                <i class="hint-ico">÷</i>
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="preparation-box preparation-item validate" id="scroll-10" >
+        <h2>Hvad i teksten omkring engagement hæfter du dig i særlig grad ved som værende vigtigt for dig? </h2>
+        <div class="marked-block">
+          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+                    ng-keyup="forberedelsenCtrl.textChange($event)"
+                    ng-blur="forberedelsenCtrl.textChange($event)"
+                    ng-model="forberedelsenCtrl.duties.text_2"
+          ></textarea>
+        </div>
+      </div>
+      <div class="preparation-box preparation-item validate" id="scroll-11">
+        <h2>Evt. spørgsmål fra den ledende medarbejder</h2>
+        <div class="marked-block">
+          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_3"
+                    ng-keyup="forberedelsenCtrl.textChange($event)"
+                    ng-blur="forberedelsenCtrl.textChange($event)"
+                    ng-model="forberedelsenCtrl.duties.text_3"
+          ></textarea>
+        </div>
+      </div>
+      <section class="content-section heading preparation-item preparation-box" id="scroll-12">
+        <h1>Ledelse</h1>
+        <p>Ledelse er en egenskab, som er essentiel, når du skal koordinere og mobilisere en organisations menneskelige ressourcer optimalt med henblik på at skabe resultater. Der er stor forskel på, hvordan den enkelte udfylder sin lederrolle bedst. Ledelse handler om at definere en retning, opsætte rammer og assistere medarbejderne i at skabe de optimale løsninger.</p>
+        <p>En leder er en person, der hjælper et fællesskab til at bruge deres talenter optimalt. En leder støtter og guider sine medarbejderes aktivitet, således at de får mulighed for at bidrage og gøre en forskel. Ved at styrke din ledelseskraft vil du opnå større resultater i forhold til personaleledelse, projektledelse, strategisk ledelse og i det hele taget ledelse af dig selv og dine omgivelser. </p>
+      </section>
+      <div class="preparation-box preparation-item validate" id="scroll-13">
+        <h2>Selvkontrol</h2>
+        <p>Selvkontrol kan beskrives som en regulering af personlig adfærd, tanker og følelser. Selvkontrol beskriver, hvordan du som person adfærdsmæssigt håndterer indefra samt udefra kommende påvirkninger så som stærke følelser eller frustrationer.</p>
+        <p>Du kan arbejde med at udvikle din personlige selvkontrol og blive bedre til eksempelvis at bevare roen og udsætte dine reaktioner, til du har tænkt situationen igennem samtidig. Er du besindig af natur, kan du arbejde med at udtrykke dine følelser på en måde, som er forståelig for andre, og du kan træne din forståelse af andres følelsesmæssige reaktioner. Når andre oplever, at du har styr på din selvkontrol, føler de sig trygge. </p>
+        <div class="slider-block active-slider">
+          <span class="left-value" >
+            <span class="text">Impulsiv</span>
+              <span class="hint-block" ng-hide="forberedelsenCtrl.showText">
+               <span class="hint-box" >
+                 <i class="hint-ico">+</i>
+                 <span class="hint-text">Du er god til at give dig selv tid og overvejer en situation grundigt.</span>
+               </span>
+               <span class="hint-box">
+                 <i class="hint-ico">÷</i>
+                 <span class="hint-text">Husk også at udtrykke dine følelser på en måde, som andre kan forstå.</span>
+               </span>
+            </span>
+          </span>
+          <div class="slider-row">
+            <div class="range-slider">
+              <input class="range-inner-slider" min="0" max="100" type="range" id="range_3"
+                     ng-model="forberedelsenCtrl.duties.range_3"
+                     on-touch="forberedelsenCtrl.clickedOrTouched"
+                     on-change
+              >
+            </div>
+          </div>
+          <span class="right-value">
+            <span class="text">Besindig</span>
+              <span class="hint-block" ng-hide="forberedelsenCtrl.showText">
+                <span class="hint-box">
+                  <span class="hint-text">Du er dygtig til at smede, mens jernet er varmt. Du er udtryksfuld og let at forstå for dine omgivelser.</span>
+                  <i class="hint-ico">+</i>
+                </span>
+                <span class="hint-box">
+                  <span class="hint-text">Bliv bedre til at bevare roen og tænk gerne tingene igennem en ekstra gang.</span>
+                  <i class="hint-ico">÷</i>
+                </span>
+              </span>
+          </span>
+        </div>
+      </div>
+      <div class="preparation-box preparation-item validate" id="scroll-14">
+        <h2>Hvornår falder det dig lettest/sværest at have selvkontrol? </h2>
+        <div class="marked-block">
+          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_4"
+                    ng-keyup="forberedelsenCtrl.textChange($event)"
+                    ng-blur="forberedelsenCtrl.textChange($event)"
+                    ng-model="forberedelsenCtrl.duties.text_4"
+          ></textarea>
+        </div>
+      </div>
+      <div class="preparation-box preparation-item validate" id="scroll-15">
+        <h2>Evt. spørgsmål fra den ledende medarbejder</h2>
+        <div class="marked-block">
+          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_5"
+                    ng-keyup="forberedelsenCtrl.textChange($event)"
+                    ng-blur="forberedelsenCtrl.textChange($event)"
+                    ng-model="forberedelsenCtrl.duties.text_5"
+          ></textarea>
+        </div>
+      </div>
+      <section class="content-section heading preparation-item preparation-box" id="scroll-16">
+        <h1>Min virksomhed</h1>
+        <p>Uanset størrelsen på din virksomhed, er en måde at få strategien integreret til MUS er ved hvert år at udpege et særlig vigtigt fokusområde. Der er tre overordnede områder, man kan tage udgangspunkt i: </p>
+        <ol>
+          <li>Markedet – hvilke markedsvilkår skal vi være særlig opmærksomme på?</li>
+          <li>Organisationskulturen – hvordan understøtter kulturen vores strategiske fokus? </li>
+          <li>Den faglige opgradering – hvilke faglige kompetencer skal udvikles?</li>
+        </ol>
+      </section>
+      <div class="preparation-box preparation-item validate" id="scroll-17">
+        <h2>Organisationskulturen</h2>
+        <p>En organisations kultur er en uhåndgribelig størrelse. Man kan betragte organisationskulturen som et ’mentalt landkort’, der hjælper medarbejderne med at skabe mening i arbejdslivet og viden om, hvordan de skal agere i forskellige situationer. Virksomhedskulturen udtrykkes i et værdisæt og har til formål at skabe en fælles forståelse af og holdning til organisationen og dens omverden. Et fælles værdigrundlag fungerer altså som en referenceramme. En virksomhed kan bruge værdierne som et effektivt kommunikationsredskab til at melde ud, hvilken type adfærd der sikrer, at målene nås. Selvom en virksomheds kultur er ret konstant, er det muligt at ændre den. En organisationskultur er de organisatoriske normer og værdier, holdninger og handlinger, der gør en organisation til det, den er.</p>
+        <div class="slider-holder">
+          <p>Hvad betyder vores værdier for dig i almindelighed?</p>
+          <div class="slider-block">
+            <span class="left-value">
+              <span class="text">Lidt</span>
+            </span>
+            <div class="slider-row">
+              <div class="range-slider">
+                <input class="range-inner-slider" min="0" max="100" type="range" id="range_4"
+                       ng-model="forberedelsenCtrl.duties.range_4"
+                       on-touch="forberedelsenCtrl.clickedOrTouched"
+                       on-change
+                >
+              </div>
+            </div>
+            <span class="right-value">
+              <span class="text">Meget</span>
+            </span>
+          </div>
+        </div>
+        <div class="slider-holder">
+          <p>Hvad betyder vores værdier for dig i almindelighed?</p>
+          <div class="slider-block">
+            <span class="left-value">
+              <span class="text">Lidt</span>
+            </span>
+            <div class="slider-row">
+              <div class="range-slider">
+                <input class="range-inner-slider" min="0" max="100" type="range" id="range_5"
+                       ng-model="forberedelsenCtrl.duties.range_5"
+                       on-touch="forberedelsenCtrl.clickedOrTouched"
+                       on-change
+                >
+              </div>
+            </div>
+            <span class="right-value">
+              <span class="text">Meget</span>
+            </span>
+          </div>
+        </div>
+        <div class="slider-holder">
+          <p>Hvad betyder vores værdier for dig i almindelighed?</p>
+          <div class="slider-block">
+            <span class="left-value">
+              <span class="text">Lidt</span>
+            </span>
+            <div class="slider-row">
+              <div class="range-slider">
+                <input class="range-inner-slider" min="0" max="100" type="range" id="range_6"
+                       ng-model="forberedelsenCtrl.duties.range_6"
+                       on-touch="forberedelsenCtrl.clickedOrTouched"
+                       on-change
+                >
+              </div>
+            </div>
+            <span class="right-value">
+              <span class="text">Meget</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="preparation-box preparation-item validate" id="scroll-18">
+        <h2>Hvordan kan vi bruge værdierne endnu mere?</h2>
+        <div class="marked-block">
+          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_6"
+                    ng-model="forberedelsenCtrl.duties.text_6"
+                    ng-keyup="forberedelsenCtrl.textChange($event)"
+                    ng-blur="forberedelsenCtrl.textChange($event)"
+          ></textarea>
+        </div>
+      </div>
+      <section class="content-section heading preparation-item preparation-box" id="scroll-19">
+        <h1>Du har nu gennemført din forberedelse og kan indsende den til din leder.</h1>
+        <p>Ledelse er en egenskab, som er essentiel, når du skal koordinere og mobilisere en organisations menneskelige ressourcer optimalt med henblik på at skabe resultater. Der er stor forskel på, hvordan den enkelte udfylder sin lederrolle bedst. Ledelse handler om at definere en retning, opsætte rammer og assistere medarbejderne i at skabe de optimale løsninger.</p>
+        <div class="send-holder text-center">
+          <a href="#" class="btn">Indsend forberedelse</a>
+        </div>
+      </section>
+      <div class="btn-holder text-center">
+        <a href="#" class="btn preparation-btn">Gem forberedelse</a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer id="footer">
+  <span class="progress-info"><span class="progress">{{forberedelsenCtrl.progress}}%</span> udført</span>
+  <a href="#" class="btn">Gem forberedelse</a>
+  <div class="footer-right">
+    <ul class="move-buttons">
+      <li><a class="btn-scroll-to down" ng-click="forberedelsenCtrl.btnDown()"></a></li>
+      <li><a class="btn-scroll-to up" ng-click="forberedelsenCtrl.btnUp()"></a></li>
+    </ul>
+    <span class="powered">Powered by <a>NXT LVL</a></span>
+  </div>
+</footer>

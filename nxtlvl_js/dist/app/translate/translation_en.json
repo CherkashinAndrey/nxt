@@ -1,0 +1,15 @@
+{ 
+
+	"medarbejdere":
+	{
+	    "TITLE" : "Co-worker",
+	    "BATTON_EMPLOEE" : "Add employee",
+	    "BATTON_PREPARATION" : "Add preparation",
+	    "PLACEHOLDER_MED" : "Looking for employee / manager?"
+	},
+	"velkommen":
+	{
+	    "NAME" : "Hej Janeaaaaaaaaaa"
+	}
+   
+}

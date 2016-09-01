@@ -1,0 +1,19 @@
+<form class="search-form">
+  <div class="search-input-row">
+    <input place-holder type="text" name="search" id="search" autocomplete="off"
+           placeholder="Søg/tilføj arbejdsopgave"
+           ng-keyup="vm.findDutie($event, vm.searchDutie)"
+           ng-keydown="vm.canselAnchor($event)"
+           ng-model="vm.searchDutie">
+  </div>
+  <div class="autocomplete-box" ng-show="vm.autocompliteShow">
+    <ul class="autocomplete-list">
+      <li tabindex="-1" ng-repeat="autocomplite in vm.autocomplits | filter: vm.searchDutie | unique"
+          ng-click="vm.addDutie(autocomplite)"
+          ng-keyup="vm.tabChoosen($event)"
+          ng-keydown="vm.canselAnchor($event)">
+        {{autocomplite}}
+      </li>
+    </ul>
+  </div>
+</form>

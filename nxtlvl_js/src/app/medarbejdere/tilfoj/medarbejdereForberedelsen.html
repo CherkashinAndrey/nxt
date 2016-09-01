@@ -1,0 +1,1273 @@
+<main id="main" role="main">
+	<div class="container">
+		<section class="addPreparation-section">
+			<form action="" class="employee-form fluid-form">
+				<div class="border-row">
+					<h1>Tilføj Forberedelse</h1>
+				</div>
+				<div class="sub-heading border-row">
+					<h2>Associate the competence fields</h2>
+					<p>Please choose the competence fields to be considered for this year's dialogue.</p>
+				</div>
+				<ul class="accordion">
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Passion <span class="mark-text">Engagement<span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>At være passioneret er at brænde for noget. Passion er meget individuelt fra person til person, og selvom mange konkrete passioner er ens, vil vi hver især udleve dem på forskellig vis. En passion for sport kan f.eks. udleves som deltager på eliteniveau, motionist, leder i sportsforening, forælder til sportsudøvende barn mm. Passion kan mærkes.</p>
+							<p>Dit arbejdsliv vil synes mere meningsfuldt, hvis du beskæftiger sig med noget, du brænder for. Passion er en indre motivationsfaktor, som ikke umiddelbart lader sig påvirke af f.eks. løn, titel, bonus, pensions- og frokostordning (ydre motivationsfaktorer). Fordelen ved at være drevet af indre motivationsfaktorer er, at de udover at frigive en masse positiv energi har længere holdbarhed. Passionerede medarbejdere udviser en højere grad af trivsel på arbejdspladsen og har mere at stå imod med i hverdagen i forhold til travlhed, sygdom og stress. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Engagement</h3>
+							<p>Engagement er udtryk for en særlig positiv tilstand hos dig i forhold til dit job, din arbejdsplads og dine kolleger. Denne positive tilstand er præget af energi, kraft og handlingsparathed samt en evne til at være fuldt optaget af dit arbejde, således at du har svært ved at løsrive dig og ind imellem glemmer tid og sted. </p>
+							<p>Engagement og motivation hænger sammen og begge dele kan udspringe enten fra dig selv (indre motivation), eller opstå på baggrund af ydre faktorer (ydre motivation). Engagement og motivation er særlige drivkræfter, der dels bidrager til, at du når dine mål og dels er med til at skabe arbejdsglæde, psykisk sundhed og forøget effektivitet. </p>
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Hvad i teksten omkring engagement hæfter du dig i særlig grad ved som værende vigtigt for dig? </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+						<footer class="slide-footer">
+							<p>Hvad hæfter du dig i særlig grad ved som værende karakteristisk for dit engagement? </p>
+						</footer>
+						<!--    не удалять версия 2
+						<div class="add_row">
+							<a class="add_btn" ng-click="MedarbejdereForberedelsenCtrl.clickAddQuestion($event)">add an eXTRA question</a>
+							<div class="btn-row ng-hide">
+								<div class="input-row">
+									<label for="question" class="fluid-label">The Extra Question</label>
+									<input type="text" 
+										name="question" 
+										id="question" 
+										ng-model="MedarbejdereForberedelsenCtrl.settings.question" 
+										ng-focus="MedarbejdereForberedelsenCtrl.activeRow($event)" 
+										ng-blur="MedarbejdereForberedelsenCtrl.noActiveRow($event)" 
+										required 
+								></div>
+								<div class="btn-holder">
+									<input type="submit" ng-click="MedarbejdereForberedelsenCtrl.btnCancel($event)" value="cancel" class="btn light">
+									<input type="submit" ng-click="MedarbejdereForberedelsenCtrl.btnOk($event)" value="ok" class="btn delHover" ></div>
+							</div>
+						</div> -->
+					
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Passion <span class="mark-text">Fleksibilitet<span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>At være passioneret er at brænde for noget. Passion er meget individuelt fra person til person, og selvom mange konkrete passioner er ens, vil vi hver især udleve dem på forskellig vis. En passion for sport kan f.eks. udleves som deltager på eliteniveau, motionist, leder i sportsforening, forælder til sportsudøvende barn mm. Passion kan mærkes.</p>
+							<p>Dit arbejdsliv vil synes mere meningsfuldt, hvis du beskæftiger sig med noget, du brænder for. Passion er en indre motivationsfaktor, som ikke umiddelbart lader sig påvirke af f.eks. løn, titel, bonus, pensions- og frokostordning (ydre motivationsfaktorer). Fordelen ved at være drevet af indre motivationsfaktorer er, at de udover at frigive en masse positiv energi har længere holdbarhed. Passionerede medarbejdere udviser en højere grad af trivsel på arbejdspladsen og har mere at stå imod med i hverdagen i forhold til travlhed, sygdom og stress. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Fleksibilitet</h3>
+							<p>Fleksibilitet er udtryk for din personlige smidighed og tilpasningsevne i forhold til dit job, din arbejdsplads og dine kolleger. Nogle er hurtigt i stand til at tilpasse deres adfærd til nye situationer og ændre arbejdsmetoder, mens andre har brug for tid til at omstille sig nye betingelser. Fleksibilitet har også at gøre med, i hvilken grad man er i stand til at tolerere afbrydelser og genoptage en afbrudt aktivitet. </p>
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Hvad i teksten omkring engagement hæfter du dig i særlig grad ved som værende vigtigt for dig? </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>Hvad hæfter du dig i særlig grad ved som værende karakteristisk for dit engagement? </p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Passion <span class="mark-text">Modstandskraft<span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>At være passioneret er at brænde for noget. Passion er meget individuelt fra person til person, og selvom mange konkrete passioner er ens, vil vi hver især udleve dem på forskellig vis. En passion for sport kan f.eks. udleves som deltager på eliteniveau, motionist, leder i sportsforening, forælder til sportsudøvende barn mm. Passion kan mærkes.</p>
+							<p>Dit arbejdsliv vil synes mere meningsfuldt, hvis du beskæftiger sig med noget, du brænder for. Passion er en indre motivationsfaktor, som ikke umiddelbart lader sig påvirke af f.eks. løn, titel, bonus, pensions- og frokostordning (ydre motivationsfaktorer). Fordelen ved at være drevet af indre motivationsfaktorer er, at de udover at frigive en masse positiv energi har længere holdbarhed. Passionerede medarbejdere udviser en højere grad af trivsel på arbejdspladsen og har mere at stå imod med i hverdagen i forhold til travlhed, sygdom og stress. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Modstandskraft</h3>
+							<p>Der er stor forskel på, hvad vi mennesker kan holde til mentalt. Din personlige modstandskraft er afhængig af, om du oplever sammenhæng i tilværelsen, og om du har tiltro til dine egne evner til at håndtere problemer. Modstandskraft som personlig kompetence handler om, i hvilken grad du formår ikke at lade dig påvirke af modgang, modstand og stress.</p>
+							<p>Modstandskraft er en vigtig kompetence holdt op imod de forandringer, som både medarbejdere og virksomheder er genstand for i dagligdagen. Hjælp og støtte til at opbygge og styrke din personlige modstandskraft vil medføre større velvære og dermed øget trivsel. Trivsel på arbejdspladsen udløser både tryghed, glæde og tilfredshed.</p>
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Hvad i teksten omkring engagement hæfter du dig i særlig grad ved som værende vigtigt for dig? </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>Hvad hæfter du dig i særlig grad ved som værende karakteristisk for dit engagement? </p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Ambition  <span class="mark-text">Målrettethed<span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>At have ambitioner betyder, at man stræber efter noget, f.eks. øget kompetence eller et konkret mål. Ofte betragtes ambition som en vigtig og positiv personlig egenskab, der medvirker til, at den enkelte udnytter sine individuelle muligheder i virksomheden. Har man ambitioner, får man udrettet noget, og man gør sig mere attraktiv på arbejdsmarkedet og i virksomheden. </p>
+							<p>Alle har et udgangspunkt, en position, og har man derudover noget, som man gerne vil opnå, en ambition, er der lagt et godt udgangspunkt for en stræben eller en higen efter at udvikle sig.  </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Målrettethed</h3>
+							<p>Målrettethed er med til at sikre fokus, og med fokus på den pågældende opgave styrer du direkte mod løsningen af opgaven. Med målrettethed opstår typisk et behov for struktur og planlægning, således at vejen mod målet også bliver mere tydelig og overskuelig, og det giver mere ro omkring udførelsen af opgaven. </p>
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Hvad i teksten omkring engagement hæfter du dig i særlig grad ved som værende vigtigt for dig? </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>Hvordan er mod, hhv. sikkerhedsorientering og risiskovillighed, relevant i forhold til dine nutidige og fremtidige arbejdsopgaver?</p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Ambition  <span class="mark-text">Mod<span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>At have ambitioner betyder, at man stræber efter noget, f.eks. øget kompetence eller et konkret mål. Ofte betragtes ambition som en vigtig og positiv personlig egenskab, der medvirker til, at den enkelte udnytter sine individuelle muligheder i virksomheden. Har man ambitioner, får man udrettet noget, og man gør sig mere attraktiv på arbejdsmarkedet og i virksomheden. </p>
+							<p>Alle har et udgangspunkt, en position, og har man derudover noget, som man gerne vil opnå, en ambition, er der lagt et godt udgangspunkt for en stræben eller en higen efter at udvikle sig.  </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Mod</h3>
+							<p>Fordelen ved at arbejde med din handlekraft er, at du vil blive mere og tidligere involveret i nye processer og opgaver, og du vil opnå flere og hurtigere resultater. Er du allerede i besiddelse af en meget veludviklet handlekraft, kan der i nogle situationer være fordele ved at dæmpe den, således at du f.eks. laver færre fejl og opnår en højere kvalitet i dit arbejde.</p>
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Oplever du til tider, at du er viser for lidt eller for meget handlekraft? I hvilke situationer? </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>Oplever du til tider, at du er viser for lidt eller for meget handlekraft? I hvilke situationer?</p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Innovation  <span class="mark-text">Åbenhed<span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>Innovation handler om udvikling af nye idéer og deres realisering i praksis. Innovation er en proces, der starter med en idé, som sidenhen behandles og raffineres for endelig at repræsentere en værdi. Det handler om at tænke anderledes, gøre noget anderledes for derigennem at skabe nogle bedre resultater.</p>
+							<p>Det er ofte sjovt og spændende at indgå i innovationsprocesser, hvor man oplever, at man tænker og bruger sig selv anderledes – man oplever, at man er i udvikling. Innovation er en generel kompetence, der kan fungere uafhængigt af faglige kompetencer. For mange virksomheder er innovation og udvikling ikke længere noget, som er placeret i én afdeling men derimod noget, som alle kan bidrage til. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Åbenhed</h3>
+							<p>Skal forstås som åbenhed over for nye tanker, strategier og visioner og kan ses som en overordnet måde at tænke på uafhængigt af sit fag, uddannelse og dagligt virke. Hvis du som person er åben, vil du som regel være positivt stemt over for nye idéer, forandringer og indtryk. Åbenhed rummer også en vis grad af nysgerrighed.</p>
+							<p>Jo mere situationsbestemt du udviser åbenhed, desto mere opmærksomhed vil du ofte tiltrække dig internt og eksternt. Kombineret med en god omstillingsevne skaber dette værdi for dig, da det øger din evne til at have mange bolde i luften på én gang og samtidig være stærk under pres.</p>
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Oplever du til tider, at du er viser for lidt eller for meget handlekraft? I hvilke situationer? </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>I hvilke opgavesammenhænge er det for dig vigtigt at være forbeholden hhv. accepterende? </p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Innovation  <span class="mark-text">Intuition<span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>Innovation handler om udvikling af nye idéer og deres realisering i praksis. Innovation er en proces, der starter med en idé, som sidenhen behandles og raffineres for endelig at repræsentere en værdi. Det handler om at tænke anderledes, gøre noget anderledes for derigennem at skabe nogle bedre resultater.</p>
+							<p>Det er ofte sjovt og spændende at indgå i innovationsprocesser, hvor man oplever, at man tænker og bruger sig selv anderledes – man oplever, at man er i udvikling. Innovation er en generel kompetence, der kan fungere uafhængigt af faglige kompetencer. For mange virksomheder er innovation og udvikling ikke længere noget, som er placeret i én afdeling men derimod noget, som alle kan bidrage til. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Intuition</h3>
+							<p>Intuition er din evne til umiddelbart at få øje på og udnytte aktuelle handlemuligheder på grundlag af tidligere erfaringer og viden. Det er værdifuldt for dig at blive bevidst om dine intuitive evner, både hvis du ønsker at dygtiggøre dig rent intuitivt og dermed blive bedre til at tro og følge dine fornemmelser, eller hvis du allerede handler meget intuitivt og ønsker at blive mere systematisk og faktaorienteret.</p>
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Oplever du til tider, at du er viser for lidt eller for meget handlekraft? I hvilke situationer? </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>I hvilke situationer kan du bruge dine intuitive evner anderledes?  </p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Innovation  <span class="mark-text">Kreativitet <span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>Innovation handler om udvikling af nye idéer og deres realisering i praksis. Innovation er en proces, der starter med en idé, som sidenhen behandles og raffineres for endelig at repræsentere en værdi. Det handler om at tænke anderledes, gøre noget anderledes for derigennem at skabe nogle bedre resultater.</p>
+							<p>Det er ofte sjovt og spændende at indgå i innovationsprocesser, hvor man oplever, at man tænker og bruger sig selv anderledes – man oplever, at man er i udvikling. Innovation er en generel kompetence, der kan fungere uafhængigt af faglige kompetencer. For mange virksomheder er innovation og udvikling ikke længere noget, som er placeret i én afdeling men derimod noget, som alle kan bidrage til. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Kreativitet </h3>
+							<p>Kreativitet er en almen betegnelse for menneskets evne eller færdighed til at skabe noget nyt. Vi er alle født med kreative evner, men det er ikke alle, som udnytter eller er bevidste om deres iboende kreativitet, men heldigvis kan kreativitet genopvækkes og dyrkes!</p>
+							<p>Både kreativitet og innovation er vigtige ressourcer at anvende situationsbestemt, som derved gør det muligt at henholdsvis at skabe og implementere nye tiltag.</p>
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Oplever du til tider, at du er viser for lidt eller for meget handlekraft? I hvilke situationer? </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>I hvilke sammenhænge vil for det være vigtigt for dig at være mere eller mindre opfindsom?  </p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Netværk  <span class="mark-text">Synlighed <span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>Dit professionelle netværk er din forudsætning for at kunne netværke – jo stærkere dit netværk er, desto mere og bedre kan du netværke. Dit netværk er de mennesker, du har en positiv relation til, og er et støttende socialt system, hvor udveksling af information og tjenester foregår blandt individer og grupper, der har en fælles interesse. Dit netværk udgør selve potentialet og er et middel – ikke et mål i sig selv. Når du netværker, skaber du merværdi i forbindelsen mellem menneskerne i dit netværk. At netværke er selve handlingen. </p>
+							<p>Jo mere relevant dit professionelle netværk er, desto større rolle spiller du. Du får lettere adgang til information, idéer, feedback, viden om specifikke projekter mm., ligesom du lettere kan stille sig til rådighed for andre. Virksomheden har gavn af, at de ansatte etablerer uformelle og formelle netværk på tværs af de eksisterende hierarkier og på tværs af organisationer for derigennem f.eks. at styrke videndeling, innovation og beslutningshastighed. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Synlighed </h3>
+							<p>Synlighed er et udtryk for, hvordan du lykkes med at skaffe sig andres opmærksomhed i sociale sammenhænge, samt i hvilken grad du evner at fastholde denne. Synlighed dækker også over din kontaktflade, forstået som omfanget af sociale kontakter med andre og er dermed nøje forbundet med det at netværke. Med synlighed følger tilgængelighed og involvering, men også nogle gange for meget.</p>
+							<p>For nogen kan det virke grænseoverskridende at skulle tiltrække sig andres opmærksomhed og interesse, men du kan arbejde med denne evne og med at vedligeholde dine sociale kontrakter på en måde, som virker naturligt for dig. </p>
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Oplever du til tider, at du er viser for lidt eller for meget handlekraft? I hvilke situationer? </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>I hvilke sammenhænge er det vigtigt for dig at være mere eller mindre synlig?  </p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Netværk  <span class="mark-text">Empati <span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>Dit professionelle netværk er din forudsætning for at kunne netværke – jo stærkere dit netværk er, desto mere og bedre kan du netværke. Dit netværk er de mennesker, du har en positiv relation til, og er et støttende socialt system, hvor udveksling af information og tjenester foregår blandt individer og grupper, der har en fælles interesse. Dit netværk udgør selve potentialet og er et middel – ikke et mål i sig selv. Når du netværker, skaber du merværdi i forbindelsen mellem menneskerne i dit netværk. At netværke er selve handlingen. </p>
+							<p>Jo mere relevant dit professionelle netværk er, desto større rolle spiller du. Du får lettere adgang til information, idéer, feedback, viden om specifikke projekter mm., ligesom du lettere kan stille sig til rådighed for andre. Virksomheden har gavn af, at de ansatte etablerer uformelle og formelle netværk på tværs af de eksisterende hierarkier og på tværs af organisationer for derigennem f.eks. at styrke videndeling, innovation og beslutningshastighed. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Empati </h3>
+							<p>Empati eller indfølingsevne er udtryk for, i hvilken grad du evner at mærke og leve dig ind i andres følelser samt viser dette i din adfærd. Empatien viser sig i din evne til at handle omsorgsfuldt og taktfuldt, og god empati forudsætter som regel god situationsfornemmelse og omvendt. Øget empati bidrager til at styrke dit forhold til dine relationer, og dermed bliver dit netværk også stærkere, og omvendt kan for meget empati give ”hensynsbetændelse”.</p>
+						
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Oplever du til tider, at du er viser for lidt eller for meget handlekraft? I hvilke situationer? </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>Oplever du til tider, at du er viser for lidt eller for meget empati? I hvilke situationer? </p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Netværk  <span class="mark-text">Helhedsorientering <span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>Dit professionelle netværk er din forudsætning for at kunne netværke – jo stærkere dit netværk er, desto mere og bedre kan du netværke. Dit netværk er de mennesker, du har en positiv relation til, og er et støttende socialt system, hvor udveksling af information og tjenester foregår blandt individer og grupper, der har en fælles interesse. Dit netværk udgør selve potentialet og er et middel – ikke et mål i sig selv. Når du netværker, skaber du merværdi i forbindelsen mellem menneskerne i dit netværk. At netværke er selve handlingen. </p>
+							<p>Jo mere relevant dit professionelle netværk er, desto større rolle spiller du. Du får lettere adgang til information, idéer, feedback, viden om specifikke projekter mm., ligesom du lettere kan stille sig til rådighed for andre. Virksomheden har gavn af, at de ansatte etablerer uformelle og formelle netværk på tværs af de eksisterende hierarkier og på tværs af organisationer for derigennem f.eks. at styrke videndeling, innovation og beslutningshastighed. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Helhedsorientering </h3>
+							<p>Helhedsorientering handler om, hvorvidt du evner at tænke i større helheder og kan danne dig et overblik selv i vanskelige situationer. Det modsatte af at være helhedsorienteret er at være detaljeorienteret.</p> 
+							<p>Det er vigtigt ind imellem at kunne indtage et helikopterperspektiv, således at du kan gennemskue vejen til resultatet og evt. konsekvenser af dine beslutninger. For meget detaljeorientering kan give vanskeligheder med at danne sig et overblik, men omvendt kan for meget helhedsorientering betyde, at konkrete delelementer overses.</p>
+						
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Oplever du til tider, at du er viser for lidt eller for meget handlekraft? I hvilke situationer? </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>Hvornår falder det dig lettest/sværest at være helhedsorienteret? </p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Samarbejde  <span class="mark-text">Situationsfornemmelse <span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>Samarbejde betyder ikke nødvendigvis enighed, men skal forstås som evnen og viljen til at indgå i en respektfuld relation med andre. For at kunne samarbejde skal du kunne lytte, sætte dig i andres sted, bidrage til løsninger og være god til at kommunikere.</p>
+							<p>Samarbejde er et vigtigt og uundgåeligt element på enhver arbejdsplads. Jo bedre du er til at samarbejde, jo lettere bliver det også for dig at indgå i fællesskaber på og uden for arbejdspladsen. Samspillet og samarbejdet mellem mennesker gør, at vores kompetencer bliver bragt rigtigt i spil. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Situationsfornemmelse </h3>
+							<p>Situationsfornemmelse er vigtig for din evne til at forstå relationer og samspillet i en gruppe. God situationsfornemmelse bevirker, at du kan afkode en situation og derigennem vide, hvordan du skal agere for at indgå konstruktivt og strategisk i samspillet.</p>
+						
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Oplever du til tider, at du er viser for lidt eller for meget handlekraft? I hvilke situationer? </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>Oplever du til tider, at du viser for lidt eller for meget situationsfornemmelse? Hvornår? </p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Samarbejde  <span class="mark-text">Kommunikation <span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>Samarbejde betyder ikke nødvendigvis enighed, men skal forstås som evnen og viljen til at indgå i en respektfuld relation med andre. For at kunne samarbejde skal du kunne lytte, sætte dig i andres sted, bidrage til løsninger og være god til at kommunikere.</p>
+							<p>Samarbejde er et vigtigt og uundgåeligt element på enhver arbejdsplads. Jo bedre du er til at samarbejde, jo lettere bliver det også for dig at indgå i fællesskaber på og uden for arbejdspladsen. Samspillet og samarbejdet mellem mennesker gør, at vores kompetencer bliver bragt rigtigt i spil. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Kommunikation </h3>
+							<p>Evnen til at kommunikere på en positiv, konstruktiv og tydelig måde skaber værdi både for dig, dine kolleger og din arbejdsplads. Vi kan alle arbejde med vores evne til verbal og nonverbal kommunikation, og når du lykkes med at udvikle og forfine dine kommunikative evner, smitter det af på dine omgivelser, og fremmer relationen og samarbejdet.</p>
+						
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Hvorledes bedømmer dig dine kommunikative evner i forhold til dine arbejdsopgaver?  </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>Hvorledes bedømmer dig dine kommunikative evner i forhold til dine arbejdsopgaver?  </p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Samarbejde  <span class="mark-text">Konflikthåndtering <span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>Samarbejde betyder ikke nødvendigvis enighed, men skal forstås som evnen og viljen til at indgå i en respektfuld relation med andre. For at kunne samarbejde skal du kunne lytte, sætte dig i andres sted, bidrage til løsninger og være god til at kommunikere.</p>
+							<p>Samarbejde er et vigtigt og uundgåeligt element på enhver arbejdsplads. Jo bedre du er til at samarbejde, jo lettere bliver det også for dig at indgå i fællesskaber på og uden for arbejdspladsen. Samspillet og samarbejdet mellem mennesker gør, at vores kompetencer bliver bragt rigtigt i spil. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Konflikthåndtering </h3>
+							<p>Konflikter er positive for dig og din arbejdsplads, når I lykkes med at få noget konstruktivt ud af de modsætninger, som uundgåeligt vil opstå. Det er derfor værdifuldt for både dig og din virksomhed, at du lærer at vælge hvornår og hvilke konflikter, som du vil tage, samt hvordan du gør det.</p>
+						
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>På hvilken måde er konflikthåndtering relevant i forhold til dine arbejdsopgaver? </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>På hvilken måde er konflikthåndtering relevant i forhold til dine arbejdsopgaver? </p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Ledelse  <span class="mark-text">Selvkontrol <span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>Ledelse er universelt, det handler om at skabe resultater med andre uanset virksomhed, branche eller marked. Imidlertid er der stor forskel på, hvordan den enkelte person udfylder sin lederrolle bedst. En god leder sætter retning, opsætte værdier og rammer og coache medarbejderne i selv at finde løsninger og træffe de rigtige beslutninger.</p>
+							<p>En leder er en person, der hjælper et fællesskab af mennesker til at bruge deres talenter optimalt på at skabe værdi for andre. En leder støtter og guider sine medarbejderes aktivitet på en sådan måde, at de yder det bidrag og gør den forskel, de faktisk ønsker – forstærket af lederens evne til at lede.</p>
+							<p>Ved at styrke din ledelseskraft vil du opnå større resultater i forhold til personaleledelse, projektledelse, strategisk ledelse og i det hele taget ledelse af dig selv og dine omgivelser. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Selvkontrol </h3>
+							<p>Selvkontrol er noget af det første, vi lægger mærke til ved andre mennesker. Selvkontrol kan beskrives som din regulering af din personlig adfærd, tanker og følelser, så disse stemmer overens med den nuværende situation og med målet på sigt. Selvkontrol viser således, hvordan du som person adfærdsmæssigt håndterer indefra og udefra kommende påvirkninger som f.eks. stærke følelser og frustrationer. </p>
+						
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Hvordan er selvkontrol vigtigt for dig i hverdagen?  </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>Hvordan er selvkontrol vigtigt for dig i hverdagen? </p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Ledelse  <span class="mark-text">Gennemslagskraft <span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>Ledelse er universelt, det handler om at skabe resultater med andre uanset virksomhed, branche eller marked. Imidlertid er der stor forskel på, hvordan den enkelte person udfylder sin lederrolle bedst. En god leder sætter retning, opsætte værdier og rammer og coache medarbejderne i selv at finde løsninger og træffe de rigtige beslutninger.</p>
+							<p>En leder er en person, der hjælper et fællesskab af mennesker til at bruge deres talenter optimalt på at skabe værdi for andre. En leder støtter og guider sine medarbejderes aktivitet på en sådan måde, at de yder det bidrag og gør den forskel, de faktisk ønsker – forstærket af lederens evne til at lede.</p>
+							<p>Ved at styrke din ledelseskraft vil du opnå større resultater i forhold til personaleledelse, projektledelse, strategisk ledelse og i det hele taget ledelse af dig selv og dine omgivelser. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Gennemslagskraft </h3>
+							<p>Din gennemslagskraft er et udtryk for, hvordan du er i stand til at søge indflydelse i arbejdsmæssig og social sammenhæng. Din gennemslagskraft siger også noget om dit konkurrencegen og om, hvor god du er til at tilpasse denne til den aktuelle situation.</p>
+							<p>Bevidsthed omkring og fokus på din personlige gennemslagskraft muliggør, at du kan arbejde med den og udvikle den på områder af dit arbejdsliv, hvor dette kan være gavnligt. </p>
+						
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>Hvad i teksten omkring gennemslagskraft hæfter du dig særlig grad ved som værende vigtigt for dig?  </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>Hvad i teksten omkring gennemslagskraft hæfter du dig særlig grad ved som værende vigtigt for dig? </p>
+							</footer>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<div class="opener-row">
+							<a href="" class="accordion-opener" ng-click="MedarbejdereForberedelsenCtrl.activeInfo($event)">Ledelse  <span class="mark-text">Delegering <span></a>
+							<label class="round-check">
+								<input type="checkbox" ng-checked="true">
+								<span class="fake-input"></span>
+							</label>
+
+						</div>
+						<div class="accordion-slide">
+							<h3>Passion</h3>
+							<p>Ledelse er universelt, det handler om at skabe resultater med andre uanset virksomhed, branche eller marked. Imidlertid er der stor forskel på, hvordan den enkelte person udfylder sin lederrolle bedst. En god leder sætter retning, opsætte værdier og rammer og coache medarbejderne i selv at finde løsninger og træffe de rigtige beslutninger.</p>
+							<p>En leder er en person, der hjælper et fællesskab af mennesker til at bruge deres talenter optimalt på at skabe værdi for andre. En leder støtter og guider sine medarbejderes aktivitet på en sådan måde, at de yder det bidrag og gør den forskel, de faktisk ønsker – forstærket af lederens evne til at lede.</p>
+							<p>Ved at styrke din ledelseskraft vil du opnå større resultater i forhold til personaleledelse, projektledelse, strategisk ledelse og i det hele taget ledelse af dig selv og dine omgivelser. </p>
+						</div>
+						<div class="accordion-slide">
+							<h3>Delegering </h3>
+							<p>Delegering vedrører den måde, du delegerer opgaver og forvalter dit ansvar på, samt i hvilken grad du evner at samarbejde. Det handler også om din rolle som leder. Nogle sætter en ære i at klare opgaverne selv og delegerer sjældent, hvor andre gerne giver opgaver videre og er samarbejdsorienteret. Kunsten er at delegere den rigtige opgave til den rigtige person på den rette måde, hvilket stiller krav til både leder og medarbejder.</p>
+							<p>For virksomheden er det optimalt, at opgaverne løses bedst og hurtigst, og det kræver, at delegering er en disciplin, som alle er opmærksomme på at optimere. </p>
+						
+							<div class="slider-block  active-slider">
+						          <span class="left-value">
+						            <span class="text">Distanceret</span>
+						            <span class="hint-block " ng-hide="MedarbejdereForberedelsenCtrl.showText">    <!-- class "in-color" for color -->
+						              <span class="hint-box">
+						                <i class="hint-ico">+</i>
+						                <span class="hint-text">Du er selektiv i forhold til din <br>investering af tid</span>
+						              </span>
+						              <span class="hint-box" >
+						                <i class="hint-ico">÷</i>
+						                <span class="hint-text">Du kan fremstå selvcenteret, når du primært engagerer dig i opgaver som er set ud fra din individuelle synsvinkel </span>
+						              </span>
+						            </span>
+						          </span>
+						          <div class="slider-row">
+						            <div class="range-slider">
+						              <input class="range-inner-slider" min="0" max="100" type="range" id="range_2"
+						                     ng-model="MedarbejdereForberedelsenCtrl.duties.range_2"
+						                     on-touch="MedarbejdereForberedelsenCtrl.clickedOrTouched"
+						                     on-change
+						                >
+						            </div>
+						          </div>
+						          <span class="right-value">
+						            <span class="text">Involveret</span>
+						            <span class="hint-block" ng-hide="MedarbejdereForberedelsenCtrl.showText" >
+						              <span class="hint-box">
+						                <span class="hint-text">Din entusiasme smitter dine opgivelser og avler mere engagement</span>
+						                <i class="hint-ico">+</i>
+						              </span>
+						              <span class="hint-box">
+						                <span class="hint-text">Du kan komme til at fejlinvestere <br> din tid</span>
+						                <i class="hint-ico">÷</i>
+						              </span>
+						            </span>
+						          </span>
+						    </div>
+					        <div class="preparation-box preparation-item validate" id="scroll-10" >
+						        <h2>I hvilke situationer vil du med fordel kunne delegere mere eller mindre?  </h2>
+						        <div class="marked-block">
+						          <textarea place-holder cols="30" rows="10" placeholder="Begrund dit svar her..." id="text_2"
+						                    ng-keyup="forberedelsenCtrl.textChange($event)"
+						                    ng-blur="forberedelsenCtrl.textChange($event)"
+						                    ng-model="forberedelsenCtrl.duties.text_2"
+						          ></textarea>
+						        </div>
+					        </div>
+							<footer class="slide-footer">
+								<p>I hvilke situationer vil du med fordel kunne delegere mere eller mindre? </p>
+							</footer>
+						</div>
+					</li>
+				</ul>
+				<div class="addPreparation-block border-row">
+					<div class="sub-heading">
+						<h2>Associate employees</h2>
+						<p>Please choose the employee(s) who will be attached to this preparation guide.</p>
+					</div>
+					<div class="search-form2">
+						<input place-holder type="search" placeholder="Leder du efter medarbejder/leder?" ng-model="MedarbejdereForberedelsenCtrl.search">
+					</div>
+					<ul class="employee-list" >
+						<li class="employee-item " ng-repeat="user in MedarbejdereForberedelsenCtrl.users | 
+																
+																filter:MedarbejdereForberedelsenCtrl.search">
+							<div class="employee-holder">
+								<div class="cell cell-photo">
+									<div class="cell-holder">
+										<div class="photo potential">
+											<img src="images/profile-photo-large-01.jpg" alt="image description">
+											<div ng-if="user.role == 'admin' ">
+												<span class="star"><img src="images/circle-star.png" alt="image description"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="cell cell-name">
+									<div class="cell-holder">
+										<strong class="name">{{user.name}}</strong>
+										<span class="position">{{user.role}}</span>
+									</div>
+
+									<!-- <a href="" class="check-btn" ng-click="MedarbejdereForberedelsenCtrl.checkComm($event, user)"></a> -->
+
+									<img src="../images/check-01.png" class="check-btn " ng-show="!user.checkComm" alt="" ng-click="MedarbejdereForberedelsenCtrl.checkComm($event, user)">
+									<img src="../images/check-animated-green-1.gif?3478-{{$index}}" class="check-btn" ng-show="user.checkComm" alt="" ng-click="MedarbejdereForberedelsenCtrl.checkActive($event, user)"> 
+
+							<!-- 		<img src="../images/check-animated-green-1.gif?355{{$index}}" class="check-btn " ng-show="user.checkComm" alt="" ng-click="MedarbejdereForberedelsenCtrl.checkActive($event, user)"> -->
+									<!-- <a href="" class="check-btn check-btn-active"></a> -->
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="btn-holder">
+					<button type="button" class="btn"><i class="ss-check"></i>Send</button>
+					<button type="button" class="btn light">Cancel</button>
+				</div>
+			</form>
+		</section>
+	</div>
+</main>

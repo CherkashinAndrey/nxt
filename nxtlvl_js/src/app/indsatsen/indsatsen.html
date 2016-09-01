@@ -1,0 +1,334 @@
+<main id="main" role="main" ng-click="autocompliteShow = !autocompliteShow">
+  <div class="container">
+    <section class="effort-section">
+      <div class="profile-head">
+        <img src="images/profile-photo-01.jpg" height="100" width="100" alt="image description" class="profile-img">
+        <h2>{{indsatsenCtrl.user.name}} <a href="#/home/profile" class="icon-settings"></a></h2>
+        <span class="profile-info">{{indsatsenCtrl.user.title}} <br>Virksomhedsrådgiver & certificeret coach</span>
+      </div>
+      <div class="main-info">
+        <div class="info-box">
+          <div class="item">
+            <span class="title">E-mail</span>
+            <a class="description" href="mailto:jane@nxtlvl.dk">jane@nxtlvl.dk</a>
+          </div>
+          <div class="item">
+            <span class="title">Telefon/Mobil</span>
+            <a class="description" href="tel:4512345678">+45-12345678</a>
+          </div>
+          <div class="item">
+            <span class="title">Rolle </span>
+            <span class="description">Leder</span>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="item">
+            <span class="title">Nærmeste leder: </span>
+            <span class="description">Navn Navnesen</span>
+          </div>
+          <div class="item">
+            <span class="title">Potentiale</span>
+            <span class="description">Ja</span>
+          </div>
+          <div class="item">
+            <span class="title">Fødseldato: </span>
+            <span class="description">20 nov. 2001</span>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="item">
+            <span class="title">Ansættelsesdato:</span>
+            <span class="description">20 nov. 2001</span>
+          </div>
+          <div class="item">
+            <span class="title">Ophørsdato:</span>
+            <span class="description">20 nov. 2001</span>
+          </div>
+        </div>
+      </div>
+      <div class="effort-item">
+        <div class="heading">
+          <h2>Mine arbejdsopgaver</h2>
+        </div>
+        <p>Nedeunder ses dine valgte arbejdsopgaver</p>
+        <form class="task-form" ng-submit="indsatsenCtrl.submitData($event)">
+          <ul class="striped-list info-table tasks-table" ng-class="{'active-edit': indsatsenCtrl.editForm}">
+            <li class="title-row">
+              <div class="box">
+                Arbejdsopgaver
+              </div>
+              <div class="box">
+                <div class="item">Nyhedsværdi</div>
+                <div class="item">Sværhedsgrad</div>
+                <div class="item delete-item">Fjern</div>
+              </div>
+            </li>
+            <li ng-repeat="dutie in indsatsenCtrl.duties.duties">
+              <div class="box">
+                {{dutie.name}}
+              </div>
+              <div class="box">
+                <div class="item">
+                  <span class="name">Nyhedsværdi:</span>
+                  <div class="value">
+                    <span class="task-text">{{dutie.level}}</span>
+                    <span class="select-task-select">
+                      <span style="width: 75px;" class="task-select select-area " ng-click="indsatsenCtrl.dropDown($event)">
+                        <span class="left"></span>
+                        <span class="center">
+                          {{dutie.level}}
+                        </span>
+                        <a class="select-opener"></a>
+                      </span>
+                      <div class="select-options drop-task-select drop-box ng-hide" >
+                        <div class="drop-holder">
+                          <div class="drop-list">
+                            <ul style="font-weight: 500">
+                              <li rel="0" class=""><a ng-click="indsatsenCtrl.selectLevel($index,indsatsenCtrl.box1[0], $event)"><span>{{indsatsenCtrl.box1[0]}}</span></a></li>
+                              <li rel="1" class=""><a ng-click="indsatsenCtrl.selectLevel($index,indsatsenCtrl.box1[1], $event)"><span>{{indsatsenCtrl.box1[1]}}</span></a></li>
+                              <li rel="2" class=""><a ng-click="indsatsenCtrl.selectLevel($index,indsatsenCtrl.box1[2], $event)"><span>{{indsatsenCtrl.box1[2]}}</span></a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </span>
+                  </div>
+                </div>
+                <div class="item">
+                  <span class="name">Sværhedsgrad:</span>
+                  <span class="task-text">{{dutie.complexity}}</span>
+                  <span class="select-task-select" >
+                    <span style="width: 75px;" class="task-select select-area" ng-click="indsatsenCtrl.dropDown($event)">
+                      <span class="left"></span>
+                      <span class="center">
+                        {{dutie.complexity}}
+                      </span>
+                      <a class="select-opener"></a>
+                    </span>
+                      <div class="select-options drop-task-select drop-box ng-hide" >
+                        <div class="drop-holder">
+                          <div class="drop-list">
+                            <ul style="font-weight: 500">
+                              <li rel="0" class=""><a ng-click="indsatsenCtrl.selectComplaxity($index,indsatsenCtrl.box2[0], $event)"><span>{{indsatsenCtrl.box2[0]}}</span></a></li>
+                              <li rel="1" class=""><a ng-click="indsatsenCtrl.selectComplaxity($index,indsatsenCtrl.box2[1], $event)"><span>{{indsatsenCtrl.box2[1]}}</span></a></li>
+                              <li rel="2" class=""><a ng-click="indsatsenCtrl.selectComplaxity($index,indsatsenCtrl.box2[2], $event)"><span>{{indsatsenCtrl.box2[2]}}</span></a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </span>
+                </div>
+                <div class="item delete-item"><a class="delete-btn" ng-click="indsatsenCtrl.removeDutie($index)"></a></div>
+              </div>
+            </li>
+            <li class="container edit-row">
+                <a class="btn-open-edit btn-toggle-edit" ng-click="indsatsenCtrl.startEditForm()">
+                  Tilføj / Fjern arbejdsopgaver
+                </a>
+                <search class="task-input-row" show="{{autocompliteShow}}"></search>
+              <div class="btn-row" ng-show="indsatsenCtrl.editForm">
+                <a href="" class="btn" ng-click="indsatsenCtrl.editForm = !indsatsenCtrl.editForm">Ok</a>
+                <a href="" class="btn light close" ng-click="indsatsenCtrl.canselDuties()">Luk</a>
+              </div>
+            </li>
+          </ul>
+        </form>
+
+        
+      </div>
+        <div class="summary-block">
+          <div class="summary-row">
+            <div class="item">
+              <span class="left-text">{{indsatsenCtrl.box2[2]}}</span>
+              <span class="new-text" ng-repeat="dutie in indsatsenCtrl.duties.duties | filter: {level: indsatsenCtrl.box1[2], complexity: indsatsenCtrl.box2[2]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+            <div class="item">
+              <span class="new-text" ng-repeat="dutie in indsatsenCtrl.duties.duties | filter: {level: indsatsenCtrl.box1[1], complexity: indsatsenCtrl.box2[2]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+            <div class="item">
+              <span class="new-text" ng-repeat="dutie in indsatsenCtrl.duties.duties | filter: {level: indsatsenCtrl.box1[0], complexity: indsatsenCtrl.box2[2]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+          </div>
+          <div class="summary-row">
+            <div class="item">
+              <span class="left-text">{{indsatsenCtrl.box2[1]}}</span>
+              <span class="new-text" ng-repeat="dutie in indsatsenCtrl.duties.duties | filter: {level: indsatsenCtrl.box1[2], complexity: indsatsenCtrl.box2[1]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+            <div class="item">
+              <span class="new-text" ng-repeat="dutie in indsatsenCtrl.duties.duties | filter: {level: indsatsenCtrl.box1[1], complexity: indsatsenCtrl.box2[1]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+            <div class="item">
+              <span class="new-text" ng-repeat="dutie in indsatsenCtrl.duties.duties | filter: {level: indsatsenCtrl.box1[0], complexity: indsatsenCtrl.box2[1]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+          </div>
+          <div class="summary-row">
+            <div class="item">
+              <span class="left-text">{{indsatsenCtrl.box2[0]}}</span>
+              <span class="bottom-text">{{indsatsenCtrl.box1[2]}}</span>
+              <span class="new-text" ng-repeat="dutie in indsatsenCtrl.duties.duties | filter: {level: indsatsenCtrl.box1[2], complexity: indsatsenCtrl.box2[0]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+            <div class="item">
+              <span class="bottom-text">{{indsatsenCtrl.box1[1]}}</span>
+              <span class="new-text" ng-repeat="dutie in indsatsenCtrl.duties.duties | filter: {level: indsatsenCtrl.box1[1], complexity: indsatsenCtrl.box2[0]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+            <div class="item">
+              <span class="bottom-text">{{indsatsenCtrl.box1[0]}}</span>
+              <span class="new-text" ng-repeat="dutie in indsatsenCtrl.duties.duties | filter: {level: indsatsenCtrl.box1[0], complexity: indsatsenCtrl.box2[0]} : true">
+                {{dutie.name}}
+              </span>
+            </div>
+          </div>
+          <div class="left-info">Sværhedsgrad</div>
+          <div class="bottom-info">Nyhedsværdi</div>
+        </div>
+
+
+
+
+
+
+
+      <div class="effort-item">
+        <h2>Mine indsatsområder</h2>
+        <p>Her kan du tilføje og kommentere på de personlige indsatsområder, som du har valgt at fokusere på. Vi anbefaler, at arbejde med 3-5 indsatsområder af gangen alt efter deres omfang.</p>
+        <p>Gå tilbage til disse indsatsområder ind i mellem. Vi anbefaler, at du har en løbende dialog med din leder omkring udførelsen af disse opgaver.</p>
+        <ul class="priority-list" ng-class="{'active-add': addInfo}">
+          <li class="open-close" ng-repeat="info in indsatsenCtrl.infos" ng-init="openComm = 'false'" ng-class="{opened: openComm}">
+            <div class="priority-holder" ng-class="{'active-item': info.check}">    <!-- add class "active-item" for green check -->
+              <div class="priority-head">
+<!--                 <a href="#" class="check-btn" ng-click="indsatsenCtrl.checkComm($event, $index)"></a>
+                <a href="#" class="check-btn check-btn-active" ng-click="indsatsenCtrl.checkComm($event, $index)"></a> -->
+                <img src="../images/check-01.png" class="check-btn" ng-show="!info.check" alt="" ng-click="indsatsenCtrl.checkComm($event, $index)">
+                <img src="../images/check-animated-green-1.gif?1396{{$index}}" class="check-btn" ng-show="info.check" alt="" ng-click="indsatsenCtrl.checkActive($event, $index)">
+
+                <span class="title">{{info.title}}</span>
+                <div class="bottom-row">
+                  <ul class="info-list" ng-click="openComm = !openComm; indsatsenCtrl.slideDown($event);">
+                    <li><span class="more-info">mere info</span></li>
+                    <li><span class="comment-count">{{info.comments.length}}</span> kommentarer</li>
+                  </ul>
+                  <span class="date">{{info.date}}</span>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="comments-block">
+                  <div class="content">
+                    <p>{{info.info}}</p>
+                  </div>
+                  <div class="comments-box">
+                    <ul class="comments-list">
+                      <li ng-repeat="comm in info.comments">
+                        <div class="text-box">
+                          <a class="author">{{comm.author}}</a>
+                          <p>{{comm.text}}</p>
+                <!--           <div class="downloaded-img">
+                            <img src="images/teams.jpg" alt="image description">
+                          </div> -->
+                        </div>
+                        <ul class="date-list">
+                          <li>
+                            <span class="time-box">{{comm.time}}</span>
+                          </li>
+                          <li> <span class="date-box">{{comm.date}}</span></li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <form class="comment-form">
+                      <textarea name="comment" id="" cols="30" rows="1" placeholder="Skriv en kommentar"
+                                ng-model="newComm" ng-keyup="indsatsenCtrl.addComm($event, $index, newComm)"></textarea>
+                      <div class="input-file-box">
+                        <input type="file" name="file" id="file" class="custom" style="opacity: 0">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a class="btn-add-action open-action" ng-click="addInfo = !addInfo">Tilføj indsatsområder</a>
+            <form class="add-action-form" ng-submit="indsatsenCtrl.submitInfo()">
+              <fieldset>
+                <div class="input-row">
+                  <label>overskrift</label>
+                  <textarea name="heading" id="title" cols="30" rows="1" class="heading-text" ng-model="indsatsenCtrl.title"></textarea>
+                </div>
+                <div class="input-row">
+                  <label for="description"></label>
+                  <textarea name="description" id="description" cols="30" rows="5" placeholder="Indsatsområde beskrivelse" ng-model="indsatsenCtrl.description"></textarea>
+                </div>
+                <div class="submit-row">
+                  <input type="submit" value="Tilføj indsatsområde" class="btn">
+                  <a class="open-action close" ng-click="addInfo = !addInfo">Fortryd</a>
+                </div>
+              </fieldset>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <div class="effort-item">
+        <h2>Forberedelser</h2>
+        <p>Her kan du se en oversigt over tidligere forberedelsesguides.</p>
+        <ul class="preparation-list">
+           <li class="title-row">
+             <span class="cell"></span>
+             <span class="cell">Mig</span>
+             <span class="cell">leder</span>
+           </li>
+           <li>
+             <span class="cell">
+               <span class="date">24. november 2017</span>
+             </span>
+             <span class="cell">
+               <a href="#" class="exit">afslut</a>
+             </span>
+             <span class="cell">
+               <a href="#" class="not-visible">ikke synlig</a>
+             </span>
+           </li>
+           <li>
+             <span class="cell">
+               <span class="date">12. april 2016</span>
+             </span>
+             <span class="cell">
+               <a href="#">vis</a>
+             </span>
+             <span class="cell">
+               <a href="#">vis</a>
+             </span>
+           </li>
+           <li>
+             <span class="cell">
+               <span class="date">2. april 2015</span>
+             </span>
+             <span class="cell">
+               <a href="#">vis</a>
+             </span>
+             <span class="cell">
+               <a href="#">vis</a>
+             </span>
+           </li>
+           <li>
+             <a class="btn-add-preparation" href="#">Tilføj ny forberedelse</a>
+           </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</main>

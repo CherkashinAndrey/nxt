@@ -1,0 +1,32 @@
+{#{% extends "base.html" %}#}
+{#{% load widget_tweaks %}#}
+{#{% load i18n %}#}
+{#{% block content %}#}
+
+<html class="show-sidebar sidebar-l2" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link type="image/x-icon" href="{% static "img/favicon.ico" %}" rel="shortcut icon" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.css">
+</head>
+<body>
+    <form class="form-signin" method="post" action="{% url 'django.contrib.auth.views.login' %}">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">NXT LVL</h2>
+
+        {% if form.errors %}
+            <p class="errorlist">{% trans "Login error, try again" %}</p>
+        {% endif %}
+
+        {{ form.username|attr:"class:input-block-level"|attr:"placeholder:login"  }}<br/>
+        {{ form.password|attr:"class:input-block-level"|attr:"placeholder:kode" }}
+        <label class="checkbox">
+            <input type="checkbox" value="remember-me"> {% trans "Remember me" %}
+        </label>
+        <button class="btn btn-primary" type="submit">{% trans "Login" %}</button>
+        <a href="/password_reset/" class="btn">{% trans "Forgotten password" %}</a>
+        <input type="hidden" name="next" value="/"/>
+    </form>
+{#{% endblock %}#}
+</body>
+</html>

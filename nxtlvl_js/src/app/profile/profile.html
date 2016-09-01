@@ -1,0 +1,141 @@
+<main id="main" role="main">
+  <div class="container">
+    <section class="profile-section" ng-class="{'active-profile': profileCtrl.activeProfile}">
+      <form ng-submit="profileCtrl.profileSubmit()" class="profile-form">
+        <div class="profile-img-box">
+          <img ng-src="{{profileCtrl.srcFile}}"  alt="image description" class="profile-img">
+          <a class="profile-settings-btn"><i class="icon-settings"></i></a>
+          <div class="inputFile_holder" ng-if="profileCtrl.activeProfile">
+            <i class="icon-settings"></i>
+            <input type="file" id="files" class="custom" file-read-image="onFileSelect($files)" ng-model="profileCtrl.uploadme"/>
+          </div>
+        </div>
+        <div class="profile-box">
+            <ul class="profile-list">
+              <li class="input-holder" >
+                <div class="input-row">
+                  <label for="name">Navn</label>
+                  <span class="input-text name">{{profileCtrl.user.user}} </span> <!-- + -->
+                  <input type="text" name="name" id="name" placeholder="{{profileCtrl.user.user}}"
+                         ng-model="profileCtrl.user.user"
+                         ng-keyup="profileCtrl.validation($event)"
+                  >
+                </div>
+              </li>
+              <li class="input-holder">
+                <div class="input-row">
+                  <label for="name">Titel</label>
+                  <span class="input-text title">{{profileCtrl.user.title}}</span> <!-- + -->
+                  <input type="text" name="title" id="title" placeholder="{{profileCtrl.user.title}}"
+                         ng-model="profileCtrl.user.title"
+                         ng-keyup="profileCtrl.validation($event)"
+                  >
+                </div>
+              </li>
+              <li class="input-holder" >
+                <div class="input-row">
+                  <label for="name">E-mail</label>
+                  <span class="input-text email">{{profileCtrl.user.email}}</span> <!-- + -->
+                  <input type="email" name="email" id="email" readonly placeholder="{{profileCtrl.user.email}}"
+                         ng-model="profileCtrl.user.email"
+                         ng-keyup="profileCtrl.validation($event)"
+                  >
+                </div>
+              </li>
+              <li class="input-holder">
+                <div class="input-row">
+                  <label for="name">Mobil</label>
+                  <span class="input-text phone">{{profileCtrl.user.phone}}</span> <!-- + -->
+                  <input type="text" name="phone" id="phone" placeholder="{{profileCtrl.user.phone}}"
+                         ng-model="profileCtrl.user.phone"
+                         ng-keyup="profileCtrl.validation($event)"
+                  >
+                </div>
+              </li>
+              <li class="input-holder"  >
+                <div class="input-row" >
+                  <label for="name">Fødselsdato</label>
+                  <span class="input-text birth">{{profileCtrl.user.date_start | date:'medium'}}</span> <!-- + -->
+                  <input type="text" name="birth" id="birth" readonly placeholder="{{profileCtrl.user.date_start}}"
+                         ng-keyup="profileCtrl.validation($event)"
+                  >
+                </div>
+              </li>
+              <li class="input-holder" readonly>
+                <div class="input-row">
+                  <label for="company">Virksomhed</label>
+                  <span class="input-text company">{{profileCtrl.user.company.name}}</span> <!-- + -->
+                  <input type="text" name="company" id="company" placeholder="{{profileCtrl.user.company.name}}" readonly >
+                </div>
+              </li>
+               <li class="input-holder" readonly>
+                <div class="input-row">
+                  <label for="position">Rolle</label>
+                  <span class="input-text position">{{profileCtrl.is_manager}}</span> <!-- + -->
+                  <input type="text" name="position" id="position" placeholder="{{profileCtrl.user.is_manager}}" readonly>
+                </div>
+              </li>
+              <li class="input-holder" readonly>
+                <div class="input-row">
+                  <label for="leader">Nærmeste leder</label> <!-- Ближайший лидер -->
+                  <span class="input-text leader">{{profileCtrl.user.manager.first_last_name}}</span>  <!-- + -->
+                  <input type="text" name="leader" id="leader" placeholder="{{profileCtrl.user.manager.first_last_name}}" readonly>
+                </div>
+              </li>
+              <li class="input-holder" ng-if="">
+                <div class="input-row">
+                  <label for="employment">Anæsttelsesdato</label>
+                  <span class="input-text employment">{{profileCtrl.user.date_of_birth | date:'medium'}}</span>  <!-- + -->
+                  <input type="text" name="employment" id="employment" placeholder="{{profileCtrl.user.date_of_birth}}" readonly>
+                </div>
+              </li>
+              <li class="input-holder" ng-if="">
+                <div class="input-row">
+                  <label for="status">Status</label>
+                  <span class="input-text status">{{profileCtrl.user.is_manager}}</span> <!-- + -->
+                  <input type="text" name="status" id="status" placeholder="{{profileCtrl.user.is_manager}}"
+                         ng-keyup="profileCtrl.validation($event)"
+                  >
+                </div>
+              </li>
+              <li class="input-holder" ng-if="">
+                <div class="input-row">
+                  <label for="termination">Ophørsdato</label>
+                  <span class="input-text termination">{{profileCtrl.user.date_finish}}</span>  <!-- + -->
+                  <input type="text" name="termination" id="termination" placeholder="{{profileCtrl.user.date_finish}}"
+                         ng-keyup="profileCtrl.validation($event)"
+                  >
+                </div>
+              </li>
+              <li class="input-holder" ng-if="">
+                <div class="input-row">
+                  <label for="potential">Potentiale</label>
+                  <span class="input-text potential">{{profileCtrl.user.potenciale}}</span> <!-- + -->
+                  <input type="text" name="potential" id="potential" placeholder="{{profileCtrl.user.potenciale}}"
+                         ng-keyup="profileCtrl.validation($event)"
+                  >
+                </div>
+              </li>
+              <li class="input-holder" ng-if="">
+                <div class="input-row">
+                  <label for="notes">Note</label>
+                  <span class="input-text notes">{{profileCtrl.user.notes}}</span>  <!-- + -->
+                  <textarea name="notes" id="notes" cols="30" rows="10" placeholder="{{profileCtrl.user.notes}}"
+                            ng-keyup="profileCtrl.validation($event)"
+                  ></textarea>
+                </div>
+              </li>
+              <li class="edit-row">
+                <span class="error-message">Der skete en fejl, Kig venligst Igen</span>
+                <a class="edit-profile toggle-profile-btn" ng-click="profileCtrl.clickActiveProfile()">Rediger Profil</a>
+                <div class="btn-row">
+                  <input type="submit" value="OK" class="btn" ng-click="profileCtrl.activeProfile = !profileCtrl.activeProfile">
+                  <a class="btn toggle-profile-btn" ng-click="profileCtrl.canselChang()">Fortryd</a>
+                </div>
+              </li>
+            </ul>
+        </div>
+      </form>
+    </section>
+  </div>
+</main>

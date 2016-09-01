@@ -1,0 +1,162 @@
+<main id="main" role="main">
+	<div class="container">
+		<section class="addEmployee-section">
+			<div class="admin-heading">
+				<h1>Add employees</h1>
+				<div class="btn-holder">
+					<a href="" class="checks-btn"
+								ng-class="{'active': MedarbejdereAnsatCtrl.pageState == 'list1'}" 
+								ng-click="MedarbejdereAnsatCtrl.changePageState('list1', $event)">
+								<i class="ss-user"></i>Add an employee</a>
+					<a href="" class="checks-btn" 
+								ng-class="{'active': MedarbejdereAnsatCtrl.pageState == 'list2'}" 
+								ng-click="MedarbejdereAnsatCtrl.changePageState('list2', $event)"><i class="ss-users"></i>add many employees</a>
+				</div>
+			</div>
+			<div ng-show="MedarbejdereAnsatCtrl.pageState == 'list1'" class="delHover">
+			<form action="" name="formUser" id="formUser" class="add-form single fluid-form" novalidate ng-submit="MedarbejdereAnsatCtrl.submit(formUser.$invalid, $event)">
+				<p>To add a <i>single new</i> employee add their information here. All fields are necessary.</p>
+				<h1 class="error ng-hide" style="color:red">ERROR</h1>
+				<div class="field-box">
+					<div class="input-row "					 
+						 ng-class="{ 'input-error': MedarbejdereAnsatCtrl.isInvalid(formUser.nameUser)}">  <!-- active-row --> <!-- $dirty -->
+						<label for="nameUser" class="fluid-label">First Name</label>
+						<input type="text" 
+								name="nameUser" 
+								id="nameUser" 
+								ng-model="MedarbejdereAnsatCtrl.userList1.first_name"
+								ng-focus="MedarbejdereAnsatCtrl.activeRow($event)"
+								ng-blur="MedarbejdereAnsatCtrl.noActiveRow($event)"
+								ng-valid
+								required 
+								>
+					</div>
+					<div class="input-row "
+						 ng-class="{ 'input-error': MedarbejdereAnsatCtrl.isInvalid(formUser.lastName)}"> <!--  input-error -->
+						<label for="lastName" class="fluid-label">Last Name</label>
+						<input type="text" 
+								name="lastName" 
+								id="lastName" 
+								ng-model="MedarbejdereAnsatCtrl.userList1.last_name" 
+								ng-focus="MedarbejdereAnsatCtrl.activeRow($event)" 
+								ng-blur="MedarbejdereAnsatCtrl.noActiveRow($event)" 
+								ng-valid
+								required 
+								>
+					</div>
+					<div class="input-row"
+						 ng-class="{ 'input-error': MedarbejdereAnsatCtrl.isInvalid(formUser.title)}">
+						<label for="title" class="fluid-label">Title</label>
+						<input type="text" 
+								name="title" 
+								id="title" 
+								ng-model="MedarbejdereAnsatCtrl.userList1.title" 
+								ng-focus="MedarbejdereAnsatCtrl.activeRow($event)" 
+								ng-blur="MedarbejdereAnsatCtrl.noActiveRow($event)" 
+								ng-valid
+								required 
+								>
+					</div>
+					<div class="input-row" 
+						 ng-class="{ 'input-error': MedarbejdereAnsatCtrl.isInvalid(formUser.email)}" >
+						<label for="email" class="fluid-label">E-mail</label>
+						<input type="email" 
+								name="email" 
+								id="email" 
+								ng-model="MedarbejdereAnsatCtrl.userList1.email" 
+								ng-focus="MedarbejdereAnsatCtrl.activeRow($event)" 
+								ng-blur="MedarbejdereAnsatCtrl.noActiveRow($event)"
+								ng-pattern="MedarbejdereAnsatCtrl.emailPattern"
+								required
+								>
+					</div>
+
+					<div class="input-row " 
+						ng-class="{ 'input-error': MedarbejdereAnsatCtrl.isInvalid(formUser.comboBox)}">
+						<label for="manager" class="fluid-label" >Manager</label>
+						<span class="select-task-select" >
+							<span style="width: 75px;" class="task-select select-area" ng-click="MedarbejdereAnsatCtrl.dropDown($event)">
+								<span class="left" ></span>
+									<div class="center" 
+											name="comboBox" 
+											id="comboBox" 
+											ng-valid 
+											type="text"
+											required
+											ng-model="MedarbejdereAnsatCtrl.userList1.manager" >
+									{{ MedarbejdereAnsatCtrl.activeManager }}
+									</div>
+								<a class="select-opener"></a>
+							</span>
+							<div class="select-options drop-task-select drop-box ng-hide" >  <!-- ng-hide -->
+								<div class="drop-holder" >
+									<div class="drop-list" >
+										<ul style="font-weight: 500"  >
+											<li ng-repeat="manager in MedarbejdereAnsatCtrl.managers"><a ng-click="MedarbejdereAnsatCtrl.selectItem($event, manager) " ><span>{{manager.first_name}} {{manager.last_name}}</span></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</span>
+					</div>
+
+					<div class="input-row " 
+						ng-class="{ 'input-error': MedarbejdereAnsatCtrl.isInvalid(formUser.roles)}">
+						<label for="roles" class="fluid-label" >Roles</label>
+						<span class="select-task-select" >
+							<span style="width: 75px;" class="task-select select-area" ng-click="MedarbejdereAnsatCtrl.dropDown($event)">
+								<span class="left" ></span>
+									<div class="center" 
+											name="roles" 
+											id="roles" 
+											ng-valid 
+											type="text"
+											required
+											ng-model="MedarbejdereAnsatCtrl.userList1.is_manager" >
+									{{ MedarbejdereAnsatCtrl.is_manager }}
+									</div>
+								<a class="select-opener"></a>
+							</span>
+							<div class="select-options drop-task-select drop-box ng-hide" >  
+								<div class="drop-holder" >
+									<div class="drop-list" >
+										<ul style="font-weight: 500"  >
+											<li ng-repeat="roles in MedarbejdereAnsatCtrl.roles"><a ng-click="MedarbejdereAnsatCtrl.selectRole($event, roles) " ><span > {{roles}} </span></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</span>
+					</div>
+
+
+				</div>
+				<div class="btn-holder">
+					<input type="submit" ui-sref="home.medarbejdere()" value="cancel" class="btn light">
+					<input type="submit" value="ok"  class="btn delHover"> <!-- disabled -->
+				</div>
+			</form>
+			</div>
+			<div ng-show="MedarbejdereAnsatCtrl.pageState == 'list2'" class="delHover">
+				<form action="#" class="add-form group" name="formUsers">
+					<p>To add <i>many employees at once</i>, upload a .csv file containing the data of the employees you want to add. Minimum information needed is <b>First Name, Last Name, Title, E-mail and Manager</b></p>
+					<div class="field-box">
+						<div class="input-row file-row ">	<!-- add classes "loading", "loaded" -->
+							<a href="" class="delete-btn" ng-click="MedarbejdereAnsatCtrl.btnFileDel($event, formUsers)">Delete</a>
+							<span class="loader">
+								<img src="images/loader-placeholder.jpg" alt="image description">
+							</span>
+							<input type="file" fileread="onFileSelect($files)" ng-model="MedarbejdereAnsatCtrl.uploadme"  name="file" id="file" class="custom">
+							<a href="" class="btn fake-choose">Choose file</a>
+							<span class="file-name">{{MedarbejdereAnsatCtrl.fileName}}</span>
+						</div>
+					</div>
+					<div class="btn-holder">
+						<input type="submit" ng-click="MedarbejdereAnsatCtrl.btnOkCancel($event)" value="cancel" class="btn light">
+						<input type="submit" ng-click="MedarbejdereAnsatCtrl.btnFileOk($event, formUsers)" value="ok" class="btn delHover" >
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</main>

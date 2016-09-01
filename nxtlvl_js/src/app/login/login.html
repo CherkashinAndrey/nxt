@@ -1,0 +1,111 @@
+<div class="login-page-wrapper page-wrapper clearfix" ng-if="!Login.loginReset">
+	<div class="container">
+		<div class="login-form-wrap text-center">
+			<br>
+			<!-- email: user@test.com , password: 1 -->
+			<!-- email: rfg@gmail.com , password: 1  -->
+			<span ng-if="Login.locationDev">email: user1@test.com , password: 1</span>
+			<span ng-if="Login.locationTest">email: rfg@gmail.com , password: 1</span>
+
+			<form class="login-form form-horizontal fluid-form" name="authForm" novalidate ng-submit='Login.signin(authForm.$invalid, $event)'>		<!-- add class 'form-error' if not valid -->
+				<fieldset>
+					<!-- Form Name -->
+					<h1 class="login-form-legend">Log-in</h1>
+					<span class="error-message">Something went wrong, please try again. </span>
+					<div class="field-box">
+						<div class="input-row"
+						 ng-class="{ 'input-error': Login.isInvalid(authForm.Email)}">
+							<!-- Text input-->
+							<label for="Email" class="fluid-label">Email</label>
+							<input name="Email"
+								type="email"
+								ng-focus="Login.activeRow($event)"
+								ng-blur="Login.noActiveRow($event)"
+								required
+								ng-model='Login.login'
+								ng-pattern="MedarbejdereAnsatCtrl.emailPattern"
+								>
+						</div>
+						<div class="input-row"
+						ng-class="{ 'input-error': Login.isInvalid(authForm.password)}">
+							<!-- Password input-->
+							<label for="Password" class="fluid-label">Password</label>
+							<input  name="password"
+								ng-pattern="passwordPattern"
+								ng-focus="Login.activeRow($event)"
+								ng-blur="Login.noActiveRow($event)"
+								required
+								type="password"
+								ng-model='Login.passw'>
+						</div>
+					</div>
+					<div class="btn-holder">
+						<a href="https://sys.nxtlvl.dk/login/" class="btn light">Cancel</a>
+						<button class="btn" ng-disabled="sending" type="Submit">
+							<span ng-show="sending"> <i class="glyphicon glyphicon-refresh spinning"></i>
+							</span>
+							Log-in
+						</button>
+					</div>
+					<!-- link -->
+					<a class="forgot-pass" ng-click="Login.showLoginReser()">I forgot my password</a>
+				</fieldset>
+			</form>
+			<div class="logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="login-page-wrapper page-wrapper clearfix" ng-if="Login.loginReset">
+	<div class="container">
+		<div class="login-form-wrap text-center">
+			<br>		
+			<form class="login-form form-horizontal fluid-form" name="authForm" novalidate ng-submit='Login.signinReset(authForm.$invalid, $event)'>		<!-- add class 'form-error' if not valid -->
+				<fieldset>
+					<!-- Form Name -->
+					<h1 class="login-form-legend">RESET</h1>
+					<span class="error-message">Something went wrong, please try again. </span>
+					<div class="field-box">
+						<div class="input-row"
+						 ng-class="{ 'input-error': Login.isInvalid(authForm.Email)}">
+							<!-- Text input-->
+							<label for="Email" class="fluid-label">Email</label>
+							<input name="Email"
+								type="email"
+								ng-focus="Login.activeRow($event)"
+								ng-blur="Login.noActiveRow($event)"
+								required
+								ng-model='Login.login'
+								ng-pattern="MedarbejdereAnsatCtrl.emailPattern"
+								>
+						</div>
+<!-- 						<div class="input-row"
+						ng-class="{ 'input-error': Login.isInvalid(authForm.password)}">
+				
+							<label for="Password" class="fluid-label">Password</label>
+							<input  name="password"
+								ng-pattern="passwordPattern"
+								ng-focus="Login.activeRow($event)"
+								ng-blur="Login.noActiveRow($event)"
+								required
+								type="password"
+								ng-model='Login.passw'>
+						</div> -->
+					</div>
+					<div class="btn-holder">
+						<a href="https://sys.nxtlvl.dk/login/" class="btn light">Cancel</a>
+						<button class="btn" ng-disabled="sending" type="Submit">
+							<span ng-show="sending"> <i class="glyphicon glyphicon-refresh spinning"></i>
+							</span>
+							Log-in
+						</button>
+					</div>
+					<!-- link -->
+					<a class="forgot-pass" ng-click="Login.showLoginReser()">In Login</a>
+				</fieldset>
+			</form>
+			<div class="logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,25 @@
+.admin-user {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 300px;
+  height: 100px;
+}
+
+.btn-admin-user {
+  background-color: #2f96b4;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.btn-admin-user:hover{
+  color: white;
+  background-color: #2f4f90;
+}
